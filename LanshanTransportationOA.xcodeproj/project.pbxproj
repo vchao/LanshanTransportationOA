@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		87415D0A1E0129C9005C5AEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D091E0129C9005C5AEA /* main.m */; };
+		87415D0D1E0129C9005C5AEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D0C1E0129C9005C5AEA /* AppDelegate.m */; };
+		87415D101E0129C9005C5AEA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D0F1E0129C9005C5AEA /* ViewController.m */; };
+		87415D131E0129C9005C5AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87415D111E0129C9005C5AEA /* Main.storyboard */; };
+		87415D151E0129C9005C5AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87415D141E0129C9005C5AEA /* Assets.xcassets */; };
+		87415D181E0129C9005C5AEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87415D161E0129C9005C5AEA /* LaunchScreen.storyboard */; };
+		87415D231E0129C9005C5AEA /* LanshanTransportationOATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D221E0129C9005C5AEA /* LanshanTransportationOATests.m */; };
+		87415D2E1E0129C9005C5AEA /* LanshanTransportationOAUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D2D1E0129C9005C5AEA /* LanshanTransportationOAUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		87415D1F1E0129C9005C5AEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87415CFD1E0129C9005C5AEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87415D041E0129C9005C5AEA;
+			remoteInfo = LanshanTransportationOA;
+		};
+		87415D2A1E0129C9005C5AEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87415CFD1E0129C9005C5AEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87415D041E0129C9005C5AEA;
+			remoteInfo = LanshanTransportationOA;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		87415D051E0129C9005C5AEA /* LanshanTransportationOA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanshanTransportationOA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87415D091E0129C9005C5AEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		87415D0B1E0129C9005C5AEA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		87415D0C1E0129C9005C5AEA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		87415D0E1E0129C9005C5AEA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		87415D0F1E0129C9005C5AEA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		87415D121E0129C9005C5AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		87415D141E0129C9005C5AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		87415D171E0129C9005C5AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		87415D191E0129C9005C5AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87415D1E1E0129C9005C5AEA /* LanshanTransportationOATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanshanTransportationOATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		87415D221E0129C9005C5AEA /* LanshanTransportationOATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanshanTransportationOATests.m; sourceTree = "<group>"; };
+		87415D241E0129C9005C5AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87415D291E0129C9005C5AEA /* LanshanTransportationOAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanshanTransportationOAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		87415D2D1E0129C9005C5AEA /* LanshanTransportationOAUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanshanTransportationOAUITests.m; sourceTree = "<group>"; };
+		87415D2F1E0129C9005C5AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		87415D021E0129C9005C5AEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87415D1B1E0129C9005C5AEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87415D261E0129C9005C5AEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		87415CFC1E0129C9005C5AEA = {
+			isa = PBXGroup;
+			children = (
+				87415D071E0129C9005C5AEA /* LanshanTransportationOA */,
+				87415D211E0129C9005C5AEA /* LanshanTransportationOATests */,
+				87415D2C1E0129C9005C5AEA /* LanshanTransportationOAUITests */,
+				87415D061E0129C9005C5AEA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		87415D061E0129C9005C5AEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				87415D051E0129C9005C5AEA /* LanshanTransportationOA.app */,
+				87415D1E1E0129C9005C5AEA /* LanshanTransportationOATests.xctest */,
+				87415D291E0129C9005C5AEA /* LanshanTransportationOAUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		87415D071E0129C9005C5AEA /* LanshanTransportationOA */ = {
+			isa = PBXGroup;
+			children = (
+				87415D0B1E0129C9005C5AEA /* AppDelegate.h */,
+				87415D0C1E0129C9005C5AEA /* AppDelegate.m */,
+				87415D0E1E0129C9005C5AEA /* ViewController.h */,
+				87415D0F1E0129C9005C5AEA /* ViewController.m */,
+				87415D111E0129C9005C5AEA /* Main.storyboard */,
+				87415D141E0129C9005C5AEA /* Assets.xcassets */,
+				87415D161E0129C9005C5AEA /* LaunchScreen.storyboard */,
+				87415D191E0129C9005C5AEA /* Info.plist */,
+				87415D081E0129C9005C5AEA /* Supporting Files */,
+			);
+			path = LanshanTransportationOA;
+			sourceTree = "<group>";
+		};
+		87415D081E0129C9005C5AEA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				87415D091E0129C9005C5AEA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		87415D211E0129C9005C5AEA /* LanshanTransportationOATests */ = {
+			isa = PBXGroup;
+			children = (
+				87415D221E0129C9005C5AEA /* LanshanTransportationOATests.m */,
+				87415D241E0129C9005C5AEA /* Info.plist */,
+			);
+			path = LanshanTransportationOATests;
+			sourceTree = "<group>";
+		};
+		87415D2C1E0129C9005C5AEA /* LanshanTransportationOAUITests */ = {
+			isa = PBXGroup;
+			children = (
+				87415D2D1E0129C9005C5AEA /* LanshanTransportationOAUITests.m */,
+				87415D2F1E0129C9005C5AEA /* Info.plist */,
+			);
+			path = LanshanTransportationOAUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		87415D041E0129C9005C5AEA /* LanshanTransportationOA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87415D321E0129C9005C5AEA /* Build configuration list for PBXNativeTarget "LanshanTransportationOA" */;
+			buildPhases = (
+				87415D011E0129C9005C5AEA /* Sources */,
+				87415D021E0129C9005C5AEA /* Frameworks */,
+				87415D031E0129C9005C5AEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LanshanTransportationOA;
+			productName = LanshanTransportationOA;
+			productReference = 87415D051E0129C9005C5AEA /* LanshanTransportationOA.app */;
+			productType = "com.apple.product-type.application";
+		};
+		87415D1D1E0129C9005C5AEA /* LanshanTransportationOATests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87415D351E0129C9005C5AEA /* Build configuration list for PBXNativeTarget "LanshanTransportationOATests" */;
+			buildPhases = (
+				87415D1A1E0129C9005C5AEA /* Sources */,
+				87415D1B1E0129C9005C5AEA /* Frameworks */,
+				87415D1C1E0129C9005C5AEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				87415D201E0129C9005C5AEA /* PBXTargetDependency */,
+			);
+			name = LanshanTransportationOATests;
+			productName = LanshanTransportationOATests;
+			productReference = 87415D1E1E0129C9005C5AEA /* LanshanTransportationOATests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		87415D281E0129C9005C5AEA /* LanshanTransportationOAUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87415D381E0129C9005C5AEA /* Build configuration list for PBXNativeTarget "LanshanTransportationOAUITests" */;
+			buildPhases = (
+				87415D251E0129C9005C5AEA /* Sources */,
+				87415D261E0129C9005C5AEA /* Frameworks */,
+				87415D271E0129C9005C5AEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				87415D2B1E0129C9005C5AEA /* PBXTargetDependency */,
+			);
+			name = LanshanTransportationOAUITests;
+			productName = LanshanTransportationOAUITests;
+			productReference = 87415D291E0129C9005C5AEA /* LanshanTransportationOAUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		87415CFD1E0129C9005C5AEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "任维超";
+				TargetAttributes = {
+					87415D041E0129C9005C5AEA = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+					87415D1D1E0129C9005C5AEA = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 87415D041E0129C9005C5AEA;
+					};
+					87415D281E0129C9005C5AEA = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 87415D041E0129C9005C5AEA;
+					};
+				};
+			};
+			buildConfigurationList = 87415D001E0129C9005C5AEA /* Build configuration list for PBXProject "LanshanTransportationOA" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 87415CFC1E0129C9005C5AEA;
+			productRefGroup = 87415D061E0129C9005C5AEA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				87415D041E0129C9005C5AEA /* LanshanTransportationOA */,
+				87415D1D1E0129C9005C5AEA /* LanshanTransportationOATests */,
+				87415D281E0129C9005C5AEA /* LanshanTransportationOAUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		87415D031E0129C9005C5AEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87415D181E0129C9005C5AEA /* LaunchScreen.storyboard in Resources */,
+				87415D151E0129C9005C5AEA /* Assets.xcassets in Resources */,
+				87415D131E0129C9005C5AEA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87415D1C1E0129C9005C5AEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87415D271E0129C9005C5AEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		87415D011E0129C9005C5AEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87415D101E0129C9005C5AEA /* ViewController.m in Sources */,
+				87415D0D1E0129C9005C5AEA /* AppDelegate.m in Sources */,
+				87415D0A1E0129C9005C5AEA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87415D1A1E0129C9005C5AEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87415D231E0129C9005C5AEA /* LanshanTransportationOATests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87415D251E0129C9005C5AEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87415D2E1E0129C9005C5AEA /* LanshanTransportationOAUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		87415D201E0129C9005C5AEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 87415D041E0129C9005C5AEA /* LanshanTransportationOA */;
+			targetProxy = 87415D1F1E0129C9005C5AEA /* PBXContainerItemProxy */;
+		};
+		87415D2B1E0129C9005C5AEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 87415D041E0129C9005C5AEA /* LanshanTransportationOA */;
+			targetProxy = 87415D2A1E0129C9005C5AEA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		87415D111E0129C9005C5AEA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87415D121E0129C9005C5AEA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		87415D161E0129C9005C5AEA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87415D171E0129C9005C5AEA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		87415D301E0129C9005C5AEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		87415D311E0129C9005C5AEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		87415D331E0129C9005C5AEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LanshanTransportationOA/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rzzx.LanshanTransportationOA;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		87415D341E0129C9005C5AEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LanshanTransportationOA/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rzzx.LanshanTransportationOA;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		87415D361E0129C9005C5AEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LanshanTransportationOATests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rzzx.LanshanTransportationOATests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LanshanTransportationOA.app/LanshanTransportationOA";
+			};
+			name = Debug;
+		};
+		87415D371E0129C9005C5AEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LanshanTransportationOATests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rzzx.LanshanTransportationOATests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LanshanTransportationOA.app/LanshanTransportationOA";
+			};
+			name = Release;
+		};
+		87415D391E0129C9005C5AEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LanshanTransportationOAUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rzzx.LanshanTransportationOAUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LanshanTransportationOA;
+			};
+			name = Debug;
+		};
+		87415D3A1E0129C9005C5AEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LanshanTransportationOAUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rzzx.LanshanTransportationOAUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LanshanTransportationOA;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		87415D001E0129C9005C5AEA /* Build configuration list for PBXProject "LanshanTransportationOA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87415D301E0129C9005C5AEA /* Debug */,
+				87415D311E0129C9005C5AEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		87415D321E0129C9005C5AEA /* Build configuration list for PBXNativeTarget "LanshanTransportationOA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87415D331E0129C9005C5AEA /* Debug */,
+				87415D341E0129C9005C5AEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		87415D351E0129C9005C5AEA /* Build configuration list for PBXNativeTarget "LanshanTransportationOATests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87415D361E0129C9005C5AEA /* Debug */,
+				87415D371E0129C9005C5AEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		87415D381E0129C9005C5AEA /* Build configuration list for PBXNativeTarget "LanshanTransportationOAUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87415D391E0129C9005C5AEA /* Debug */,
+				87415D3A1E0129C9005C5AEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 87415CFD1E0129C9005C5AEA /* Project object */;
+}

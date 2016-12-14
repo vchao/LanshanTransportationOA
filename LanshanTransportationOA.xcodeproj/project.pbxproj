@@ -207,6 +207,7 @@
 				TargetAttributes = {
 					87415D041E0129C9005C5AEA = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = U6FT9LZ7R7;
 						ProvisioningStyle = Automatic;
 					};
 					87415D1D1E0129C9005C5AEA = {
@@ -424,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U6FT9LZ7R7;
 				INFOPLIST_FILE = LanshanTransportationOA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rzzx.LanshanTransportationOA;
@@ -435,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U6FT9LZ7R7;
 				INFOPLIST_FILE = LanshanTransportationOA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rzzx.LanshanTransportationOA;
@@ -507,6 +510,7 @@
 				87415D341E0129C9005C5AEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87415D351E0129C9005C5AEA /* Build configuration list for PBXNativeTarget "LanshanTransportationOATests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +519,7 @@
 				87415D371E0129C9005C5AEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87415D381E0129C9005C5AEA /* Build configuration list for PBXNativeTarget "LanshanTransportationOAUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +528,7 @@
 				87415D3A1E0129C9005C5AEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

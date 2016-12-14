@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A63CB7A6E6E2B691B8C4D9A60CE492F3354D2F07",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "d52e1189-7824-438b-97ce-c8865e0ba7fb++1996" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "d52e1189-7824-438b-97ce-c8865e0ba7fb++1996" : 9223372036854775807,
+    "A63CB7A6E6E2B691B8C4D9A60CE492F3354D2F07" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6F89E722-7146-4BDA-9EFC-15B18721BC9E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "d52e1189-7824-438b-97ce-c8865e0ba7fb++1996" : "LanshanTransportationOA\/LanshanTransportationOA\/SBJson\/",
+    "A63CB7A6E6E2B691B8C4D9A60CE492F3354D2F07" : "LanshanTransportationOA\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LanshanTransportationOA",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LanshanTransportationOA.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vchao\/LanshanTransportationOA.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A63CB7A6E6E2B691B8C4D9A60CE492F3354D2F07"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/115.28.107.199\/AnyRadio_iPhone",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "d52e1189-7824-438b-97ce-c8865e0ba7fb++1996"
+    }
+  ]
+}

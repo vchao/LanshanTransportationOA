@@ -50,5 +50,12 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)gotoMainWindow
+{
+    //登录成功，进入主视图
+    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    self.window.rootViewController=[storyBoard instantiateInitialViewController];
+}
 
 @end

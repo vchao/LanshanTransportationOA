@@ -50,6 +50,8 @@
 		878272FE1E0158D600DECCBD /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 878272F01E0158D600DECCBD /* SBJsonTokeniser.m */; };
 		878272FF1E0158D600DECCBD /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 878272F21E0158D600DECCBD /* SBJsonUTF8Stream.m */; };
 		878273001E0158D600DECCBD /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 878272F41E0158D600DECCBD /* SBJsonWriter.m */; };
+		87FA22BA1E0230F000E4D1A6 /* LTContactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FA22B91E0230F000E4D1A6 /* LTContactsTableViewCell.m */; };
+		87FA22BD1E0235E400E4D1A6 /* LTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FA22BC1E0235E400E4D1A6 /* LTAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +161,10 @@
 		878272F21E0158D600DECCBD /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		878272F31E0158D600DECCBD /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		878272F41E0158D600DECCBD /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		87FA22B81E0230F000E4D1A6 /* LTContactsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTContactsTableViewCell.h; sourceTree = "<group>"; };
+		87FA22B91E0230F000E4D1A6 /* LTContactsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTContactsTableViewCell.m; sourceTree = "<group>"; };
+		87FA22BB1E0235E400E4D1A6 /* LTAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAlertView.h; sourceTree = "<group>"; };
+		87FA22BC1E0235E400E4D1A6 /* LTAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +233,10 @@
 				878272701E01542500DECCBD /* LTContactsViewController.m */,
 				878272721E01545400DECCBD /* LTCommunicateViewController.h */,
 				878272731E01545400DECCBD /* LTCommunicateViewController.m */,
+				87FA22B81E0230F000E4D1A6 /* LTContactsTableViewCell.h */,
+				87FA22B91E0230F000E4D1A6 /* LTContactsTableViewCell.m */,
+				87FA22BB1E0235E400E4D1A6 /* LTAlertView.h */,
+				87FA22BC1E0235E400E4D1A6 /* LTAlertView.m */,
 			);
 			path = LanshanTransportationOA;
 			sourceTree = "<group>";
@@ -513,6 +523,7 @@
 				87415D0D1E0129C9005C5AEA /* AppDelegate.m in Sources */,
 				878272FB1E0158D600DECCBD /* SBJsonStreamWriter.m in Sources */,
 				878272FC1E0158D600DECCBD /* SBJsonStreamWriterAccumulator.m in Sources */,
+				87FA22BD1E0235E400E4D1A6 /* LTAlertView.m in Sources */,
 				878272A41E0154D200DECCBD /* AFURLResponseSerialization.m in Sources */,
 				878272A91E0154D200DECCBD /* UIButton+AFNetworking.m in Sources */,
 				878272FF1E0158D600DECCBD /* SBJsonUTF8Stream.m in Sources */,
@@ -522,6 +533,7 @@
 				878272F81E0158D600DECCBD /* SBJsonStreamParserAccumulator.m in Sources */,
 				878272FA1E0158D600DECCBD /* SBJsonStreamParserState.m in Sources */,
 				878272FE1E0158D600DECCBD /* SBJsonTokeniser.m in Sources */,
+				87FA22BA1E0230F000E4D1A6 /* LTContactsTableViewCell.m in Sources */,
 				878272F71E0158D600DECCBD /* SBJsonStreamParser.m in Sources */,
 				878272FD1E0158D600DECCBD /* SBJsonStreamWriterState.m in Sources */,
 				878272A31E0154D200DECCBD /* AFURLRequestSerialization.m in Sources */,

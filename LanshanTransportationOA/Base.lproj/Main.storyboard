@@ -11,36 +11,6 @@
     </dependencies>
     <scenes>
         <!--首页-->
-        <scene sceneID="ko8-xw-Lmf">
-            <objects>
-                <tableViewController id="hqO-fF-3qY" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BT3-wo-zhQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WW7-Ae-76R">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WW7-Ae-76R" id="iEU-Rv-JDh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="hqO-fF-3qY" id="Xh8-Sn-9PQ"/>
-                            <outlet property="delegate" destination="hqO-fF-3qY" id="udf-rw-gHB"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="首页" id="yBg-Fo-E3R"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="orY-v4-Uav" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2473" y="-637"/>
-        </scene>
-        <!--首页-->
         <scene sceneID="Hqw-P8-xQt">
             <objects>
                 <navigationController title="首页" id="lIm-CJ-BO5" sceneMemberID="viewController">
@@ -54,12 +24,31 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="hqO-fF-3qY" kind="relationship" relationship="rootViewController" id="mb2-9O-Ruq"/>
+                        <segue destination="fnB-lV-mfP" kind="relationship" relationship="rootViewController" id="rWX-ax-iHD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Biu-oi-tPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1665" y="-637"/>
+        </scene>
+        <!--首页-->
+        <scene sceneID="6Ih-8c-WGL">
+            <objects>
+                <viewController id="fnB-lV-mfP" customClass="LTMainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uhc-LH-d4x"/>
+                        <viewControllerLayoutGuide type="bottom" id="0tI-oE-yAA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rWb-Xw-exw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="首页" id="nvy-7A-aAu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A61-4k-JhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2442" y="-639"/>
         </scene>
         <!--沟通-->
         <scene sceneID="Rym-6T-fgx">

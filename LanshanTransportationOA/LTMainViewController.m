@@ -19,6 +19,21 @@
     
     self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
     self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
+    
+    NSArray *array = [NSArray arrayWithObjects:
+                      [NSDictionary dictionaryWithObjectsAndKeys:@"home_document", @"icon", @"来文管理", @"title", nil],
+                      [NSDictionary dictionaryWithObjectsAndKeys:@"ic_send_document", @"icon", @"发文管理", @"title", nil],
+                      [NSDictionary dictionaryWithObjectsAndKeys:@"home_service", @"icon", @"事务批办", @"title", nil],
+                      [NSDictionary dictionaryWithObjectsAndKeys:@"ic_in_doc", @"icon", @"印鉴使用", @"title", nil],
+                      [NSDictionary dictionaryWithObjectsAndKeys:@"home_mail", @"icon", @"邮件管理", @"title", nil],
+                      [NSDictionary dictionaryWithObjectsAndKeys:@"home_meeting", @"icon", @"会议通知", @"title", nil],
+                      [NSDictionary dictionaryWithObjectsAndKeys:@"home_read", @"icon", @"信息中心", @"title", nil],
+                      [NSDictionary dictionaryWithObjectsAndKeys:@"home_attendance", @"icon", @"外出报备", @"title", nil],
+                      [NSDictionary dictionaryWithObjectsAndKeys:@"home_signin", @"icon", @"考勤管理", @"title", nil],
+                      [NSDictionary dictionaryWithObjectsAndKeys:@"home_office", @"icon", @"公路保养", @"title", nil], nil];
+    for (int i = 0; i < array.count; i++) {
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

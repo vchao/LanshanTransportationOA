@@ -204,3 +204,130 @@
 }
 
 @end
+
+@interface LTLiuchengAlertView ()<UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic ,weak) UIView *contentView;
+@property (nonatomic ,weak) UITableView *tableView;
+@property (nonatomic ,weak) UIButton *cancelBtn;
+@property (nonatomic ,strong) NSArray *array;
+@end
+
+@implementation LTLiuchengAlertView
+
+- (instancetype)initWithArray:(NSArray *)array
+{
+    self = [super initWithFrame:CGRectMake(0, 0, _MainScreen_Width, _MainScreen_Height)];
+    if (self) {
+        self.array = array;
+        [self setLiuchenUI];
+        [self.tableView reloadData];
+    }
+    
+    return self;
+}
+
+- (void)setLiuchenUI{
+    [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.7]];
+    
+    UIView *contentView = [[UIView alloc] init];
+    self.contentView = contentView;
+    contentView.backgroundColor = [UIColor colorWithRed:32.f/255.f green:148.f/255.f blue:254/255.f alpha:1.f];
+    contentView.layer.cornerRadius = 8;
+    contentView.layer.masksToBounds = YES;
+    [self addSubview:contentView];
+    
+    UITableView *tableView = [[UITableView alloc] init];
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"LTLiuchengTableViewCell"];
+    self.tableView = tableView;
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    [contentView addSubview:tableView];
+    
+    UIButton *cancelBtn = [[UIButton alloc] init];
+    self.cancelBtn = cancelBtn;
+    cancelBtn.backgroundColor = [UIColor clearColor];
+    [cancelBtn setTitle:@"关闭" forState:UIControlStateNormal];
+    [cancelBtn addTarget:self action:@selector(cancleBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [contentView addSubview:cancelBtn];
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    CGFloat contentW = _MainScreen_Width - 86;
+    CGFloat contentH = 243;
+    self.contentView.bounds = CGRectMake(0, 0, contentW, contentH);
+    self.contentView.center = self.center;
+    
+    CGFloat tableH = (self.array.count?self.array.count:1)*44;
+    if (tableH+48 > _MainScreen_Height-86) {
+        tableH = _MainScreen_Height-86-48;
+    }
+    self.tableView.frame = CGRectMake(0, 0, contentW, tableH);
+    
+    self.cancelBtn.frame = CGRectMake(0, CGRectGetMaxY(self.tableView.frame), contentW, 48);
+    
+    self.contentView.bounds = CGRectMake(0, 0, contentW, CGRectGetMaxY(self.cancelBtn.frame));
+    self.contentView.center = self.center;
+}
+
+- (void)cancleBtnClick{
+    if (_cancelButtonClicked) {
+        self.cancelButtonClicked();
+        [self removeFromSuperview];
+    }  else {
+        [self removeFromSuperview];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.array count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44.f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"LTLiuchengTableViewCell";
+    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NSDictionary *dict = [self.array objectAtIndex:indexPath.row];
+    
+    UIView *hLineView = [[UIView alloc] initWithFrame:CGRectMake(12, 0, 0.5, 44.f)];
+    hLineView.backgroundColor = [UIColor lightGrayColor];
+    [cell addSubview:hLineView];
+    
+    UIView *rView = [[UIView alloc] initWithFrame:CGRectMake(10, 8, 4, 4)];
+    rView.layer.cornerRadius = 2.f;
+    rView.layer.masksToBounds = YES;
+    rView.backgroundColor = [UIColor lightGrayColor];
+    [cell addSubview:rView];
+    if (indexPath.row == 0) {
+        rView.backgroundColor = [UIColor colorWithRed:25/255.f green:200/255.f blue:35/255.f alpha:1.0];
+    }
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(28, 0, self.contentView.frame.size.width-28, 22)];
+    titleLabel.font = [UIFont systemFontOfSize:14.f];
+    titleLabel.textColor = [UIColor grayColor];
+    titleLabel.text = [NSString stringWithFormat:@"流程%ld",indexPath.row+1];
+    [cell addSubview:titleLabel];
+    
+    UILabel *descLabel = [[UILabel alloc] initWithFrame:CGRectMake(28, 22, self.contentView.frame.size.width-28, 22)];
+    descLabel.font = [UIFont systemFontOfSize:12.f];
+    descLabel.textColor = [UIColor colorWithRed:25/255.f green:200/255.f blue:35/255.f alpha:1.0];
+    [cell addSubview:descLabel];
+    descLabel.text = [dict objectForKey:@"title"];
+//    NSLog(@"%@", dict);
+    
+    return cell;
+}
+
+@end

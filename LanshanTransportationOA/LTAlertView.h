@@ -17,3 +17,11 @@
 - (instancetype)initWithDict:(NSDictionary *)dict;
 
 @end
+
+@interface LTLiuchengAlertView : UIView
+
+@property (nonatomic, copy) void(^cancelButtonClicked)(void);
+
+- (instancetype)initWithArray:(NSArray *)array;
+
+@end

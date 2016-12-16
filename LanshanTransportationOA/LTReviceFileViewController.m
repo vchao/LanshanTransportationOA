@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "NSObject+SBJson.h"
 #import "LTReviceFileTableViewCell.h"
+#import "LTAlertView.h"
 //#import "ZXLiuchengViewController.h"
 //#import "ZXWorkShenpiViewController.h"
 
@@ -223,8 +224,39 @@
     UIButton *btn = (UIButton *)sender;
     NSInteger tagID = btn.tag;
     liuchengID = [NSString stringWithFormat:@"%ld",tagID];
-    [self performSegueWithIdentifier:@"pushToLiucheng" sender:@"tapLiucheng"];
+    
+    [self getLCList:tagID];
+    
+//    [self performSegueWithIdentifier:@"pushToLiucheng" sender:@"tapLiucheng"];
 }
+
+- (void)getLCList:(NSInteger)lcID{
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSInteger uid = [userDefaults integerForKey:USER_ID];
+    
+    NSString *URLString = [NSString stringWithFormat:@"%@/gongwen.php?act=liucheng&uid=%ld&id=%ld",
+                           API_DOMAIN,uid,(long)lcID];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:URLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
+        NSMutableDictionary *resultDict = [responseObject JSONValue];
+        NSArray *lcArray = [resultDict objectForKey:@"info"];
+        
+        LTLiuchengAlertView *alertView = [[LTLiuchengAlertView alloc] initWithArray:lcArray];
+        alertView.cancelButtonClicked = ^{
+            
+        };
+        [self.navigationController.view addSubview:alertView];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        [SVProgressHUD showErrorWithStatus:@"加载失败"];
+    }];
+}
+
 - (IBAction)rightItemAction:(id)sender {
     [self performSegueWithIdentifier:@"pushToReceiveRegistration" sender:@"tapRightItem"];
 }

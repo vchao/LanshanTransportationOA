@@ -13,6 +13,7 @@
     IBOutlet UILabel *userLabel;
     IBOutlet UILabel *timeLabel;
     IBOutlet UIButton *liuchengBtn;
+    IBOutlet UILabel *wenhaoLabel;
 }
 
 @property (nonatomic, retain) UIButton *liuchengBtn;

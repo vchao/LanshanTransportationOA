@@ -188,7 +188,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 102;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -217,7 +217,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     openInfo = searchArray[indexPath.row];
-    [self performSegueWithIdentifier:@"pushToWorkDetail" sender:@"tapPishi"];
+//    [self performSegueWithIdentifier:@"pushToWorkDetail" sender:@"tapPishi"];
 }
 
 - (void)showLiucheng:(id)sender{
@@ -226,8 +226,6 @@
     liuchengID = [NSString stringWithFormat:@"%ld",tagID];
     
     [self getLCList:tagID];
-    
-//    [self performSegueWithIdentifier:@"pushToLiucheng" sender:@"tapLiucheng"];
 }
 
 - (void)getLCList:(NSInteger)lcID{
@@ -261,6 +259,11 @@
     [self performSegueWithIdentifier:@"pushToReceiveRegistration" sender:@"tapRightItem"];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [searchBar resignFirstResponder];
+}
+
 #pragma mark - 导航
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -272,13 +275,6 @@
     if ([sender isEqualToString:@"tapPishi"]) {
         if ([viewController respondsToSelector:@selector(setInfoDictionary:)]) {
             [viewController setValue:openInfo forKey:@"infoDictionary"];
-        }
-    } else if ([sender isEqualToString:@"tapLiucheng"]) {
-        if ([viewController respondsToSelector:@selector(setLcID:)]) {
-            [viewController setValue:liuchengID forKey:@"lcID"];
-        }
-        if ([viewController respondsToSelector:@selector(setLcType:)]) {
-            [viewController setValue:@"gongwen" forKey:@"lcType"];
         }
     }
 }

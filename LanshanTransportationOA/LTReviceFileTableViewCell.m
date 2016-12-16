@@ -17,7 +17,8 @@
     cont = [cont stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
     contentLabel.text = cont;
     
-    userLabel.text = [cellDictionary objectForKey:@"adduser"];
+    wenhaoLabel.text = [NSString stringWithFormat:@"【%@】",[cellDictionary objectForKey:@"wenhao"]];
+    userLabel.text = [cellDictionary objectForKey:@"danwei"];
     
     //    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     //    [formatter setDateStyle:NSDateFormatterMediumStyle];

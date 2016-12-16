@@ -26,10 +26,15 @@ static NSString *SETTINT_PASSWORD = @"SETTINT_PASSWORD";
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[self OriginImage:SY_IMAGE(@"pic_loginbg") scaleToSize:CGSizeMake(_MainScreen_Width, _MainScreen_Height)]];
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    //设置成NO表示当前控件响应后会传播到其他控件上，默认为YES。
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    //将触摸事件添加到当前view
+    [self.view addGestureRecognizer:tapGestureRecognizer];
     
     // Do any additional setup after loading the view, typically from a nib.
     loginLeftConstraint.constant = (_MainScreen_Width-292)/2;
-    logoLeftConstraint.constant = (_MainScreen_Width-130)/2-16;
+    logoLeftConstraint.constant = (_MainScreen_Width-100)/2-16;
     
     UIImage *inputBg = SY_IMAGE(@"登录输入框");
     UIEdgeInsets insets = UIEdgeInsetsMake(3, 3, 3, 3);
@@ -62,6 +67,14 @@ static NSString *SETTINT_PASSWORD = @"SETTINT_PASSWORD";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)keyboardHide:(UITapGestureRecognizer*)tap{
+    if (usernameField.isFirstResponder) {
+        [usernameField resignFirstResponder];
+    }else if (passField.isFirstResponder) {
+        [passField resignFirstResponder];
+    }
 }
 
 - (IBAction)tapPlayerButton:(id)sender {

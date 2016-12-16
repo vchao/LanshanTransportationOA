@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		870EE60B1E03D06B00BFEC2E /* LTReviceFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870EE60A1E03D06B00BFEC2E /* LTReviceFileViewController.m */; };
+		870EE60E1E03D11900BFEC2E /* LTReviceFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 870EE60D1E03D11900BFEC2E /* LTReviceFileTableViewCell.m */; };
+		870EE6111E03E2BF00BFEC2E /* LTFileReceiveRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870EE6101E03E2BF00BFEC2E /* LTFileReceiveRegisterViewController.m */; };
 		87415D0A1E0129C9005C5AEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D091E0129C9005C5AEA /* main.m */; };
 		87415D0D1E0129C9005C5AEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D0C1E0129C9005C5AEA /* AppDelegate.m */; };
 		87415D101E0129C9005C5AEA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D0F1E0129C9005C5AEA /* ViewController.m */; };
@@ -74,6 +77,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		870EE6091E03D06B00BFEC2E /* LTReviceFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTReviceFileViewController.h; sourceTree = "<group>"; };
+		870EE60A1E03D06B00BFEC2E /* LTReviceFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTReviceFileViewController.m; sourceTree = "<group>"; };
+		870EE60C1E03D11900BFEC2E /* LTReviceFileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTReviceFileTableViewCell.h; sourceTree = "<group>"; };
+		870EE60D1E03D11900BFEC2E /* LTReviceFileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTReviceFileTableViewCell.m; sourceTree = "<group>"; };
+		870EE60F1E03E2BF00BFEC2E /* LTFileReceiveRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTFileReceiveRegisterViewController.h; sourceTree = "<group>"; };
+		870EE6101E03E2BF00BFEC2E /* LTFileReceiveRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTFileReceiveRegisterViewController.m; sourceTree = "<group>"; };
 		87415D051E0129C9005C5AEA /* LanshanTransportationOA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanshanTransportationOA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87415D091E0129C9005C5AEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		87415D0B1E0129C9005C5AEA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -245,6 +254,12 @@
 				87FA22BC1E0235E400E4D1A6 /* LTAlertView.m */,
 				87FA22C01E0296DD00E4D1A6 /* LTLoginViewController.h */,
 				87FA22C11E0296DD00E4D1A6 /* LTLoginViewController.m */,
+				870EE6091E03D06B00BFEC2E /* LTReviceFileViewController.h */,
+				870EE60A1E03D06B00BFEC2E /* LTReviceFileViewController.m */,
+				870EE60C1E03D11900BFEC2E /* LTReviceFileTableViewCell.h */,
+				870EE60D1E03D11900BFEC2E /* LTReviceFileTableViewCell.m */,
+				870EE60F1E03E2BF00BFEC2E /* LTFileReceiveRegisterViewController.h */,
+				870EE6101E03E2BF00BFEC2E /* LTFileReceiveRegisterViewController.m */,
 			);
 			path = LanshanTransportationOA;
 			sourceTree = "<group>";
@@ -527,10 +542,13 @@
 				878272A21E0154D200DECCBD /* AFURLConnectionOperation.m in Sources */,
 				87415D101E0129C9005C5AEA /* ViewController.m in Sources */,
 				878272AB1E0154D200DECCBD /* UIProgressView+AFNetworking.m in Sources */,
+				870EE60B1E03D06B00BFEC2E /* LTReviceFileViewController.m in Sources */,
+				870EE60E1E03D11900BFEC2E /* LTReviceFileTableViewCell.m in Sources */,
 				8782726B1E0133FC00DECCBD /* LTMainViewController.m in Sources */,
 				878272A81E0154D200DECCBD /* UIAlertView+AFNetworking.m in Sources */,
 				87415D0D1E0129C9005C5AEA /* AppDelegate.m in Sources */,
 				878272FB1E0158D600DECCBD /* SBJsonStreamWriter.m in Sources */,
+				870EE6111E03E2BF00BFEC2E /* LTFileReceiveRegisterViewController.m in Sources */,
 				878272FC1E0158D600DECCBD /* SBJsonStreamWriterAccumulator.m in Sources */,
 				87FA22BD1E0235E400E4D1A6 /* LTAlertView.m in Sources */,
 				878272A41E0154D200DECCBD /* AFURLResponseSerialization.m in Sources */,

@@ -116,11 +116,14 @@
                                     <constraint firstAttribute="height" constant="444" id="VZs-sW-qJn"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="岚山区交通运输局协同办公" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjI-QR-nxZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="岚山区交通运输局协同办公" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjI-QR-nxZ">
                                 <rect key="frame" x="0.0" y="188" width="375" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="5kc-zE-1Uh"/>
+                                    <constraint firstAttribute="width" constant="375" id="PWy-xc-8EG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.017106805701119998" green="0.29567808105321614" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.20392156862745098" green="0.46666666666666667" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_launcher" translatesAutoresizingMaskIntoConstraints="NO" id="Ddk-Bx-CEl">
@@ -137,11 +140,14 @@
                             <constraint firstItem="FCQ-Z8-3P0" firstAttribute="leading" secondItem="cWO-Ea-wdg" secondAttribute="leadingMargin" constant="14" id="CON-au-VZY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F4R-zi-IqP" secondAttribute="trailing" constant="-16" id="GJH-9y-BOI"/>
                             <constraint firstItem="FCQ-Z8-3P0" firstAttribute="top" secondItem="cWO-Ea-wdg" secondAttribute="topMargin" constant="156" id="LYG-JO-Ib7"/>
+                            <constraint firstAttribute="trailing" secondItem="GjI-QR-nxZ" secondAttribute="trailing" id="RCB-Eb-8Sm"/>
                             <constraint firstAttribute="bottomMargin" secondItem="aW3-RU-EDn" secondAttribute="bottom" constant="40" id="Sd6-w4-bBO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aW3-RU-EDn" secondAttribute="trailing" constant="-16" id="TDv-ig-Ah1"/>
+                            <constraint firstItem="GjI-QR-nxZ" firstAttribute="leading" secondItem="cWO-Ea-wdg" secondAttribute="leading" id="WDL-JS-aCc"/>
                             <constraint firstAttribute="bottomMargin" secondItem="F4R-zi-IqP" secondAttribute="bottom" constant="20" id="Y5l-yF-fVr"/>
                             <constraint firstItem="Ddk-Bx-CEl" firstAttribute="leading" secondItem="cWO-Ea-wdg" secondAttribute="leadingMargin" constant="94" id="bs9-Su-Zt6"/>
                             <constraint firstItem="F4R-zi-IqP" firstAttribute="leading" secondItem="cWO-Ea-wdg" secondAttribute="leadingMargin" constant="-16" id="d0a-qT-HW3"/>
+                            <constraint firstItem="GjI-QR-nxZ" firstAttribute="top" secondItem="Ddk-Bx-CEl" secondAttribute="bottom" constant="8" id="f30-fP-h0b"/>
                             <constraint firstItem="Ddk-Bx-CEl" firstAttribute="top" secondItem="cWO-Ea-wdg" secondAttribute="topMargin" constant="80" id="gAW-EW-Nke"/>
                         </constraints>
                     </view>

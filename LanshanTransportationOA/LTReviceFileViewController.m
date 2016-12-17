@@ -217,7 +217,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     openInfo = searchArray[indexPath.row];
-//    [self performSegueWithIdentifier:@"pushToWorkDetail" sender:@"tapPishi"];
+    [self performSegueWithIdentifier:@"pushToFileDetail" sender:@"tapDetail"];
 }
 
 - (void)showLiucheng:(id)sender{
@@ -272,7 +272,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     UIViewController *viewController = segue.destinationViewController;
-    if ([sender isEqualToString:@"tapPishi"]) {
+    if ([sender isEqualToString:@"tapDetail"]) {
         if ([viewController respondsToSelector:@selector(setInfoDictionary:)]) {
             [viewController setValue:openInfo forKey:@"infoDictionary"];
         }

@@ -67,7 +67,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gDN-lO-9qu" id="WFO-3G-fKB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -137,10 +137,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LTContactsTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="LTContactsTableViewCell" id="oAa-R1-7dQ" customClass="LTContactsTableViewCell">
-                                <rect key="frame" x="0.0" y="56" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oAa-R1-7dQ" id="WDt-WT-9y2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="MNm-BO-Mhe">
@@ -258,7 +258,7 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oMa-ha-8RQ" id="U1B-yG-eUl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="协同办公平台培训会        2014-11-03 08:50 会议室1032" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPY-vW-1RO">
@@ -371,11 +371,31 @@
                         <outlet property="segmentedControl" destination="b3O-OS-T73" id="zbx-BV-ofN"/>
                         <outlet property="workTableView" destination="aIm-SR-gr4" id="rKX-lc-RK6"/>
                         <segue destination="VsF-Ye-IIT" kind="push" identifier="pushToReceiveRegistration" id="ZLk-dh-0Q7"/>
+                        <segue destination="XHy-ad-TpB" kind="push" identifier="pushToFileDetail" id="NrD-8L-atX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PD0-8v-uwE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3228" y="-1343"/>
+        </scene>
+        <!--来文详情-->
+        <scene sceneID="Fvo-RL-aUG">
+            <objects>
+                <viewController id="XHy-ad-TpB" customClass="LTFileDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J7k-BR-qIW"/>
+                        <viewControllerLayoutGuide type="bottom" id="aKF-Ww-7Oi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="npX-7S-7KB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="来文详情" id="KlV-7y-WPj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KTd-ZN-h6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4067" y="-1134"/>
         </scene>
         <!--收文登记-->
         <scene sceneID="Qqg-W8-XaF">
@@ -394,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPd-zH-LqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4090" y="-1344"/>
+            <point key="canvasLocation" x="4070" y="-1776"/>
         </scene>
     </scenes>
     <resources>

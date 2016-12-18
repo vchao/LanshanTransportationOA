@@ -25,3 +25,12 @@
 - (instancetype)initWithArray:(NSArray *)array;
 
 @end
+
+@interface LTListAlertView : UIView
+
+@property (nonatomic, copy) void(^checkItemClicked)(NSDictionary *item);
+@property (nonatomic, copy) void(^cancelButtonClicked)(void);
+
+- (instancetype)initWithArray:(NSArray *)array title:(NSString *)title;
+
+@end

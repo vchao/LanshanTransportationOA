@@ -331,3 +331,128 @@
 }
 
 @end
+
+@interface LTListAlertView ()<UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic ,weak) UIView *contentView;
+@property (nonatomic ,weak) UILabel *titleLabel;
+@property (nonatomic ,weak) UITableView *tableView;
+@property (nonatomic ,weak) UIButton *cancelBtn;
+@property (nonatomic ,strong) NSArray *array;
+@end
+
+@implementation LTListAlertView
+
+- (instancetype)initWithArray:(NSArray *)array title:(NSString *)title
+{
+    self = [super initWithFrame:CGRectMake(0, 0, _MainScreen_Width, _MainScreen_Height)];
+    if (self) {
+        self.array = array;
+        [self setListUI];
+        self.titleLabel.text = title;
+        [self.tableView reloadData];
+    }
+    
+    return self;
+}
+
+- (void)setListUI{
+    [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.7]];
+    
+    UIView *contentView = [[UIView alloc] init];
+    self.contentView = contentView;
+    contentView.backgroundColor = [UIColor colorWithRed:32.f/255.f green:148.f/255.f blue:254/255.f alpha:1.f];
+    contentView.layer.cornerRadius = 8;
+    contentView.layer.masksToBounds = YES;
+    [self addSubview:contentView];
+    
+    UILabel *titleLabel = [[UILabel alloc] init];
+    self.titleLabel = titleLabel;
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.font = [UIFont systemFontOfSize:14.f];
+    [contentView addSubview:titleLabel];
+    
+    UITableView *tableView = [[UITableView alloc] init];
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"LTListTableViewCell"];
+    self.tableView = tableView;
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    [contentView addSubview:tableView];
+    
+    UIButton *cancelBtn = [[UIButton alloc] init];
+    self.cancelBtn = cancelBtn;
+    cancelBtn.backgroundColor = [UIColor clearColor];
+    [cancelBtn setTitle:@"关闭" forState:UIControlStateNormal];
+    [cancelBtn addTarget:self action:@selector(cancleBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [contentView addSubview:cancelBtn];
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    CGFloat contentW = _MainScreen_Width - 86;
+    CGFloat contentH = 243;
+    self.contentView.bounds = CGRectMake(0, 0, contentW, contentH);
+    self.contentView.center = self.center;
+    
+    self.titleLabel.frame = CGRectMake(12, 0, self.contentView.frame.size.width-24, 40);
+    CGFloat tableH = (self.array.count?self.array.count:1)*32;
+    if (tableH+48+40 > _MainScreen_Height-86) {
+        tableH = _MainScreen_Height-86-48-40;
+    }
+    self.tableView.frame = CGRectMake(0, 40, contentW, tableH);
+    
+    self.cancelBtn.frame = CGRectMake(0, CGRectGetMaxY(self.tableView.frame), contentW, 48);
+    
+    self.contentView.bounds = CGRectMake(0, 0, contentW, CGRectGetMaxY(self.cancelBtn.frame));
+    self.contentView.center = self.center;
+}
+
+- (void)cancleBtnClick{
+    if (_cancelButtonClicked) {
+        self.cancelButtonClicked();
+        [self removeFromSuperview];
+    }  else {
+        [self removeFromSuperview];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.array count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 32.f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"LTListTableViewCell";
+    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    NSDictionary *dict = [self.array objectAtIndex:indexPath.row];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, self.contentView.frame.size.width-12, 32)];
+    titleLabel.font = [UIFont systemFontOfSize:14.f];
+    titleLabel.textColor = [UIColor grayColor];
+    titleLabel.text = [dict objectForKey:@"name"];
+    [cell addSubview:titleLabel];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (_checkItemClicked) {
+        self.checkItemClicked([self.array objectAtIndex:indexPath.row]);
+        [self removeFromSuperview];
+    }  else {
+        [self removeFromSuperview];
+    }
+}
+
+@end

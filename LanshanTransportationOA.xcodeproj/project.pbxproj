@@ -57,6 +57,9 @@
 		87F982E71E07B27800AB5541 /* LTMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F982E61E07B27800AB5541 /* LTMailViewController.m */; };
 		87F982EA1E07B32500AB5541 /* LTMailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F982E91E07B32500AB5541 /* LTMailTableViewCell.m */; };
 		87F982ED1E07B7C700AB5541 /* LTMailDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F982EC1E07B7C700AB5541 /* LTMailDetailViewController.m */; };
+		87F982F01E07C26900AB5541 /* LTMailSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F982EF1E07C26900AB5541 /* LTMailSendViewController.m */; };
+		87F982F41E07C33600AB5541 /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F982F31E07C33600AB5541 /* RTLabel.m */; };
+		87F982F71E07C6C800AB5541 /* LTContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F982F61E07C6C800AB5541 /* LTContactCell.m */; };
 		87FA22BA1E0230F000E4D1A6 /* LTContactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FA22B91E0230F000E4D1A6 /* LTContactsTableViewCell.m */; };
 		87FA22BD1E0235E400E4D1A6 /* LTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FA22BC1E0235E400E4D1A6 /* LTAlertView.m */; };
 		87FA22BF1E02941A00E4D1A6 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FA22BE1E02941A00E4D1A6 /* Login.storyboard */; };
@@ -184,6 +187,12 @@
 		87F982E91E07B32500AB5541 /* LTMailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMailTableViewCell.m; sourceTree = "<group>"; };
 		87F982EB1E07B7C700AB5541 /* LTMailDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMailDetailViewController.h; sourceTree = "<group>"; };
 		87F982EC1E07B7C700AB5541 /* LTMailDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMailDetailViewController.m; sourceTree = "<group>"; };
+		87F982EE1E07C26900AB5541 /* LTMailSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMailSendViewController.h; sourceTree = "<group>"; };
+		87F982EF1E07C26900AB5541 /* LTMailSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMailSendViewController.m; sourceTree = "<group>"; };
+		87F982F21E07C33600AB5541 /* RTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLabel.h; sourceTree = "<group>"; };
+		87F982F31E07C33600AB5541 /* RTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLabel.m; sourceTree = "<group>"; };
+		87F982F51E07C6C800AB5541 /* LTContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTContactCell.h; sourceTree = "<group>"; };
+		87F982F61E07C6C800AB5541 /* LTContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTContactCell.m; sourceTree = "<group>"; };
 		87FA22B81E0230F000E4D1A6 /* LTContactsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTContactsTableViewCell.h; sourceTree = "<group>"; };
 		87FA22B91E0230F000E4D1A6 /* LTContactsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTContactsTableViewCell.m; sourceTree = "<group>"; };
 		87FA22BB1E0235E400E4D1A6 /* LTAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAlertView.h; sourceTree = "<group>"; };
@@ -241,6 +250,7 @@
 		87415D071E0129C9005C5AEA /* LanshanTransportationOA */ = {
 			isa = PBXGroup;
 			children = (
+				87F982F11E07C33600AB5541 /* RTLabel */,
 				87FA22BE1E02941A00E4D1A6 /* Login.storyboard */,
 				878272751E0154C100DECCBD /* Lib */,
 				87415D0B1E0129C9005C5AEA /* AppDelegate.h */,
@@ -280,6 +290,10 @@
 				87F982E91E07B32500AB5541 /* LTMailTableViewCell.m */,
 				87F982EB1E07B7C700AB5541 /* LTMailDetailViewController.h */,
 				87F982EC1E07B7C700AB5541 /* LTMailDetailViewController.m */,
+				87F982EE1E07C26900AB5541 /* LTMailSendViewController.h */,
+				87F982EF1E07C26900AB5541 /* LTMailSendViewController.m */,
+				87F982F51E07C6C800AB5541 /* LTContactCell.h */,
+				87F982F61E07C6C800AB5541 /* LTContactCell.m */,
 			);
 			path = LanshanTransportationOA;
 			sourceTree = "<group>";
@@ -422,6 +436,15 @@
 			path = SBJson;
 			sourceTree = "<group>";
 		};
+		87F982F11E07C33600AB5541 /* RTLabel */ = {
+			isa = PBXGroup;
+			children = (
+				87F982F21E07C33600AB5541 /* RTLabel.h */,
+				87F982F31E07C33600AB5541 /* RTLabel.m */,
+			);
+			path = RTLabel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -559,10 +582,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				878272AC1E0154D200DECCBD /* UIRefreshControl+AFNetworking.m in Sources */,
+				87F982F01E07C26900AB5541 /* LTMailSendViewController.m in Sources */,
 				878272A21E0154D200DECCBD /* AFURLConnectionOperation.m in Sources */,
 				87415D101E0129C9005C5AEA /* ViewController.m in Sources */,
 				878272AB1E0154D200DECCBD /* UIProgressView+AFNetworking.m in Sources */,
 				870EE60B1E03D06B00BFEC2E /* LTReviceFileViewController.m in Sources */,
+				87F982F71E07C6C800AB5541 /* LTContactCell.m in Sources */,
 				870EE60E1E03D11900BFEC2E /* LTReviceFileTableViewCell.m in Sources */,
 				8782726B1E0133FC00DECCBD /* LTMainViewController.m in Sources */,
 				878272A81E0154D200DECCBD /* UIAlertView+AFNetworking.m in Sources */,
@@ -592,6 +617,7 @@
 				878272A61E0154D200DECCBD /* AFNetworkActivityIndicatorManager.m in Sources */,
 				878272A11E0154D200DECCBD /* AFSecurityPolicy.m in Sources */,
 				8782729D1E0154D200DECCBD /* AFHTTPRequestOperation.m in Sources */,
+				87F982F41E07C33600AB5541 /* RTLabel.m in Sources */,
 				878272A51E0154D200DECCBD /* AFURLSessionManager.m in Sources */,
 				87415D0A1E0129C9005C5AEA /* main.m in Sources */,
 				87F982ED1E07B7C700AB5541 /* LTMailDetailViewController.m in Sources */,

@@ -338,8 +338,8 @@
     [scrollView addSubview:lineView9];
     
     UIButton *fjBtn = [[UIButton alloc] initWithFrame:CGRectMake(14, CGRectGetMaxY(fjDescLabel.frame)+4, 32, 32)];
-    [fjBtn setImage:[UIImage imageNamed:@"file_attach_icon_normal"] forState:UIControlStateNormal];
-    [fjBtn setImage:[UIImage imageNamed:@"file_attach_icon_pressed"] forState:UIControlStateHighlighted];
+    [fjBtn setImage:[UIImage imageNamed:@"ic_doc_add_attach"] forState:UIControlStateNormal];
+    [fjBtn setImage:[UIImage imageNamed:@"ic_doc_add_attach"] forState:UIControlStateHighlighted];
     [fjBtn addTarget:self action:@selector(fujianAction:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:fjBtn];
     

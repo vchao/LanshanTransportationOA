@@ -108,6 +108,7 @@
         //印鉴使用
     }else if (btn.tag == 1005) {
         //邮件管理
+        [self performSegueWithIdentifier:@"pushToMailList" sender:@"tapCell"];
     }else if (btn.tag == 1006) {
         //会议通知
     }else if (btn.tag == 1007) {

@@ -484,16 +484,16 @@
                 NSData *dd = _fileArray[i];
                 NSString *name = _fileNameArray[i];
                 if (dd && name) {
-                    [formData appendPartWithFileData:dd name:@"file" fileName:name mimeType:@"image/jpeg"];
+                    [formData appendPartWithFileData:dd name:[NSString stringWithFormat:@"file[%d]", i] fileName:name mimeType:@"image/jpeg"];
                 }
             }
         } success:^(AFHTTPRequestOperation *operation,id responseObject) {
             [SVProgressHUD dismiss];
-            NSDictionary *resultDict = [responseObject JSONValue];
-            if ([[resultDict objectForKey:@"state"] isEqualToString:@"ok"]) {
+//            NSDictionary *resultDict = [responseObject JSONValue];
+//            if ([[resultDict objectForKey:@"state"] isEqualToString:@"ok"]) {
                 [SVProgressHUD showSuccessWithStatus:@"提交成功"];
                 [self.navigationController popViewControllerAnimated:YES];
-            }
+//            }
         } failure:^(AFHTTPRequestOperation *operation,NSError *error) {
             NSLog(@"Error: %@", error);
             [SVProgressHUD showSuccessWithStatus:@"提交失败"];

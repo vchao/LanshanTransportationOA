@@ -49,11 +49,107 @@
                     <connections>
                         <segue destination="rxP-8H-Cwx" kind="push" identifier="pushToReviceFile" id="kYu-lX-rg7"/>
                         <segue destination="Mfi-cr-tSv" kind="push" identifier="pushToMailList" id="jR6-Zs-UXP"/>
+                        <segue destination="gSv-gc-azd" kind="push" identifier="pushToStamp" id="aZr-Bl-09c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A61-4k-JhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2442" y="-639"/>
+        </scene>
+        <!--印鉴管理-->
+        <scene sceneID="5yi-RE-kqY">
+            <objects>
+                <viewController id="gSv-gc-azd" customClass="LTStampViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BkQ-lf-uCh"/>
+                        <viewControllerLayoutGuide type="bottom" id="a12-62-prL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dKj-2w-X8U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5pZ-GO-Izn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5pZ-GO-Izn" firstAttribute="top" secondItem="dKj-2w-X8U" secondAttribute="top" id="T06-oD-EQs"/>
+                            <constraint firstAttribute="trailing" secondItem="5pZ-GO-Izn" secondAttribute="trailing" id="n6V-cV-Pi3"/>
+                            <constraint firstItem="5pZ-GO-Izn" firstAttribute="leading" secondItem="dKj-2w-X8U" secondAttribute="leading" id="qxO-ka-Fq2"/>
+                            <constraint firstItem="a12-62-prL" firstAttribute="top" secondItem="5pZ-GO-Izn" secondAttribute="bottom" id="wss-pf-9gP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="印鉴管理" id="WlF-54-bqY"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="stampTableView" destination="5pZ-GO-Izn" id="ViQ-fu-33T"/>
+                        <segue destination="uaf-g0-Xe9" kind="push" identifier="pushToStampApply" id="I3V-p1-NTp"/>
+                        <segue destination="04q-Qu-F1I" kind="push" identifier="pushToStampApproval" id="DDl-8h-TCQ"/>
+                        <segue destination="yBB-Ak-FCv" kind="push" identifier="pushToStampSelect" id="PXX-RR-WEh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QI8-5a-jPO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3456.8000000000002" y="-514.09295352323841"/>
+        </scene>
+        <!--印鉴使用申请-->
+        <scene sceneID="syv-oX-Lgh">
+            <objects>
+                <viewController id="uaf-g0-Xe9" customClass="LTStampApplyTableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tbK-ar-JuO"/>
+                        <viewControllerLayoutGuide type="bottom" id="FO2-VH-iZJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O72-JB-Yb6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="印鉴使用申请" id="kfu-FO-t7J"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ECc-hP-WQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4279" y="-835"/>
+        </scene>
+        <!--印鉴查询-->
+        <scene sceneID="EyX-kE-HwU">
+            <objects>
+                <viewController id="yBB-Ak-FCv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RVC-Th-qAA"/>
+                        <viewControllerLayoutGuide type="bottom" id="lya-af-eqN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IMU-GO-Gsk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="印鉴查询" id="vaS-lE-0CL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uBP-T6-E8p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4270" y="-131"/>
+        </scene>
+        <!--印鉴审批-->
+        <scene sceneID="Lak-is-sQX">
+            <objects>
+                <viewController id="04q-Qu-F1I" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HAU-ps-YTc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fjo-cB-eOo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y8F-UE-BBx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="印鉴审批" id="soX-7b-QAb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8G-1v-BnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4995" y="-495"/>
         </scene>
         <!--沟通-->
         <scene sceneID="Rym-6T-fgx">
@@ -377,7 +473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PD0-8v-uwE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3228" y="-1343"/>
+            <point key="canvasLocation" x="3228" y="-1877"/>
         </scene>
         <!--来文详情-->
         <scene sceneID="Fvo-RL-aUG">
@@ -396,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTd-ZN-h6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4067" y="-1134"/>
+            <point key="canvasLocation" x="4065" y="-1791"/>
         </scene>
         <!--收文登记-->
         <scene sceneID="Qqg-W8-XaF">
@@ -415,7 +511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPd-zH-LqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4070" y="-1776"/>
+            <point key="canvasLocation" x="4065" y="-2460"/>
         </scene>
         <!--邮件管理-->
         <scene sceneID="ZNt-vR-OlN">
@@ -558,7 +654,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uem-wc-qvj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3228" y="-639.13043478260875"/>
+            <point key="canvasLocation" x="3228" y="-1191"/>
         </scene>
         <!--邮件详情-->
         <scene sceneID="CsE-2A-GAi">
@@ -753,7 +849,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEt-c6-wEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5262" y="-903"/>
+            <point key="canvasLocation" x="4919" y="-1526"/>
         </scene>
         <!--发邮件-->
         <scene sceneID="zO4-QS-FjT">
@@ -985,7 +1081,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTB-Fz-Qtm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4106" y="-279"/>
+            <point key="canvasLocation" x="5919" y="-1191"/>
         </scene>
     </scenes>
     <resources>

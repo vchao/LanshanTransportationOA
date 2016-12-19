@@ -106,6 +106,7 @@
         //事物审批
     }else if (btn.tag == 1004) {
         //印鉴使用
+        [self performSegueWithIdentifier:@"pushToStamp" sender:@"tapCell"];
     }else if (btn.tag == 1005) {
         //邮件管理
         [self performSegueWithIdentifier:@"pushToMailList" sender:@"tapCell"];

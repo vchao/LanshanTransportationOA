@@ -11,17 +11,20 @@
 #import "AFNetworking.h"
 #import "NSObject+SBJson.h"
 #import "LTAlertView.h"
+#import "AssetsLibrary/AssetsLibrary.h"
 
-@interface LTFileReceiveRegisterViewController (){
-    UITextField *timeField;
+@interface LTFileReceiveRegisterViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate>{
+    UIScrollView *scrollView;
     UITextField *bianhaoField;
     UITextField *wenhaoField;
     UITextField *fenshuField;
     UITextField *titleField;
-    UITextField *jiezhiField;
     UITextView  *contentTextView;
     UITextView  *feedbackTextView;//拟办意见
-    UILabel     *fujianLabel;
+    UIView      *fujianView;
+    UIView      *fileLineHView;
+    
+    UIView      *bottomView;
     UILabel     *shenheLabel;
     UIButton    *submitBtn;
     
@@ -35,6 +38,10 @@
 @property (nonatomic, strong) UILabel     *typeField;
 @property (nonatomic, strong) NSDictionary *fromItem;
 @property (nonatomic, strong) UILabel     *fromField;
+@property (nonatomic, strong) UILabel     *timeField;
+@property (nonatomic, strong) UITextField *jiezhiField;
+@property (nonatomic, strong) NSMutableArray *fileArray;
+@property (nonatomic, strong) NSMutableArray *fileNameArray;
 
 @end
 
@@ -43,7 +50,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, _MainScreen_Width, _MainScreen_Height)];
+    _fileArray = [NSMutableArray new];
+    _fileNameArray = [NSMutableArray new];
+    
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, _MainScreen_Width, _MainScreen_Height)];
+    scrollView.delegate = self;
     [self.view addSubview:scrollView];
     
     UILabel *typeDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
@@ -99,11 +110,16 @@
     [dateFormatter setDateFormat:@"YYYY-MM-dd"];
     NSString *dateString = [dateFormatter stringFromDate:currentDate];
     
-    timeField = [[UITextField alloc] initWithFrame:CGRectMake(98, CGRectGetMaxY(typeDescLabel.frame), _MainScreen_Width-106, 40)];
-    timeField.text = dateString;
-    timeField.tintColor = [UIColor grayColor];
-    timeField.font = [UIFont systemFontOfSize:14.f];
-    [scrollView addSubview:timeField];
+    self.timeField = [[UILabel alloc] initWithFrame:CGRectMake(98, CGRectGetMaxY(typeDescLabel.frame), _MainScreen_Width-106, 40)];
+    self.timeField.text = dateString;
+    self.timeField.tintColor = [UIColor grayColor];
+    self.timeField.font = [UIFont systemFontOfSize:14.f];
+    [scrollView addSubview:self.timeField];
+    
+    UIView *timeView = [[UIView alloc] initWithFrame:self.timeField.frame];
+    [scrollView addSubview:timeView];
+    UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkReviceTime)];
+    [timeView addGestureRecognizer:tap3];
     
     UIView *lineView2 = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(timeDescLabel.frame), _MainScreen_Width, 0.5)];
     lineView2.backgroundColor = [UIColor lightGrayColor];
@@ -175,12 +191,6 @@
     whDescLabel.textAlignment = NSTextAlignmentCenter;
     whDescLabel.font = [UIFont systemFontOfSize:14.f];
     [scrollView addSubview:whDescLabel];
-    
-//    UILabel *xingLabel5 = [[UILabel alloc] initWithFrame:CGRectMake(70, CGRectGetMaxY(bhDescLabel.frame), 14, 40)];
-//    xingLabel5.text = @"*";
-//    xingLabel5.textColor = [UIColor redColor];
-//    xingLabel5.font = [UIFont systemFontOfSize:14.f];
-//    [scrollView addSubview:xingLabel5];
     
     UIView *lineHView5 = [[UIView alloc] initWithFrame:CGRectMake(90, 4+CGRectGetMaxY(bhDescLabel.frame), 0.5, 32)];
     lineHView5.backgroundColor = [UIColor lightGrayColor];
@@ -264,15 +274,15 @@
     lineHView8.backgroundColor = [UIColor lightGrayColor];
     [scrollView addSubview:lineHView8];
     
-    jiezhiField = [[UITextField alloc] initWithFrame:CGRectMake(98, CGRectGetMaxY(titleDescLabel.frame)+4, _MainScreen_Width-106-80, 32)];
-    jiezhiField.tintColor = [UIColor grayColor];
-    jiezhiField.placeholder = @"没有请填 无";
-    jiezhiField.font = [UIFont systemFontOfSize:14.f];
-    jiezhiField.layer.borderColor = [UIColor grayColor].CGColor;
-    jiezhiField.layer.borderWidth = 0.5;
-    [scrollView addSubview:jiezhiField];
+    self.jiezhiField = [[UITextField alloc] initWithFrame:CGRectMake(98, CGRectGetMaxY(titleDescLabel.frame)+4, _MainScreen_Width-106-80, 32)];
+    self.jiezhiField.tintColor = [UIColor grayColor];
+    self.jiezhiField.placeholder = @"没有请填 无";
+    self.jiezhiField.font = [UIFont systemFontOfSize:14.f];
+    self.jiezhiField.layer.borderColor = [UIColor grayColor].CGColor;
+    self.jiezhiField.layer.borderWidth = 0.5;
+    [scrollView addSubview:self.jiezhiField];
     
-    UIButton *tapDateBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(jiezhiField.frame), CGRectGetMaxY(titleDescLabel.frame), 80, 40)];
+    UIButton *tapDateBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.jiezhiField.frame), CGRectGetMaxY(titleDescLabel.frame), 80, 40)];
     tapDateBtn.backgroundColor = [UIColor clearColor];
     [tapDateBtn setTitle:@"请选择日期" forState:UIControlStateNormal];
     [tapDateBtn addTarget:self action:@selector(selecteDateTime) forControlEvents:UIControlEventTouchUpInside];
@@ -333,33 +343,39 @@
     [fjBtn addTarget:self action:@selector(fujianAction:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:fjBtn];
     
-    UIView *lineHView9 = [[UIView alloc] initWithFrame:CGRectMake(60, 4+CGRectGetMaxY(fjDescLabel.frame), 0.5, 32)];
-    lineHView9.backgroundColor = [UIColor lightGrayColor];
-    [scrollView addSubview:lineHView9];
+    fileLineHView = [[UIView alloc] initWithFrame:CGRectMake(60, 4+CGRectGetMaxY(fjDescLabel.frame), 0.5, 32)];
+    fileLineHView.backgroundColor = [UIColor lightGrayColor];
+    [scrollView addSubview:fileLineHView];
     
-    UIView *lineView10 = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(lineHView9.frame)+4, _MainScreen_Width, 0.5)];
+    fujianView = [[UIView alloc] initWithFrame:CGRectMake(72, CGRectGetMaxY(fjDescLabel.frame), _MainScreen_Width-80, 40)];
+    [scrollView addSubview:fujianView];
+    
+    bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(fujianView.frame), _MainScreen_Height, 96)];
+    [scrollView addSubview:bottomView];
+    
+    UIView *lineView10 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _MainScreen_Width, 0.5)];
     lineView10.backgroundColor = [UIColor lightGrayColor];
-    [scrollView addSubview:lineView10];
+    [bottomView addSubview:lineView10];
     
     UILabel *shDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(lineView10.frame), 80, 40)];
     shDescLabel.text = @"审  核  人";
     shDescLabel.textColor = [UIColor grayColor];
     shDescLabel.textAlignment = NSTextAlignmentCenter;
     shDescLabel.font = [UIFont systemFontOfSize:14.f];
-    [scrollView addSubview:shDescLabel];
+    [bottomView addSubview:shDescLabel];
     
     UIView *lineHView10 = [[UIView alloc] initWithFrame:CGRectMake(90, 4+CGRectGetMaxY(lineView10.frame), 0.5, 32)];
     lineHView10.backgroundColor = [UIColor lightGrayColor];
-    [scrollView addSubview:lineHView10];
+    [bottomView addSubview:lineHView10];
     
     shenheLabel = [[UILabel alloc] initWithFrame:CGRectMake(98, CGRectGetMaxY(lineView10.frame)+4, _MainScreen_Width-106, 32)];
     shenheLabel.textColor = [UIColor orangeColor];
     shenheLabel.font = [UIFont systemFontOfSize:14.f];
-    [scrollView addSubview:shenheLabel];
+    [bottomView addSubview:shenheLabel];
     
     UIView *lineView11 = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(shDescLabel.frame), _MainScreen_Width, 0.5)];
     lineView11.backgroundColor = [UIColor lightGrayColor];
-    [scrollView addSubview:lineView11];
+    [bottomView addSubview:lineView11];
     
     submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(8, CGRectGetMaxY(lineView11.frame)+8, _MainScreen_Width-16, 40)];
     submitBtn.backgroundColor = [UIColor colorWithRed:32.f/255.f green:148.f/255.f blue:254/255.f alpha:1.f];
@@ -367,43 +383,122 @@
     submitBtn.layer.masksToBounds = YES;
     [submitBtn setTitle:@"提交" forState:UIControlStateNormal];
     [submitBtn addTarget:self action:@selector(submitAction) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:submitBtn];
+    [bottomView addSubview:submitBtn];
     
-    scrollView.contentSize = CGSizeMake(_MainScreen_Width, CGRectGetMaxY(submitBtn.frame)+8);
+    scrollView.contentSize = CGSizeMake(_MainScreen_Width, CGRectGetMaxY(bottomView.frame));
     
     [self getFileAddDetail];
 }
 
-- (void)selecteDateTime{
+- (void)checkReviceTime
+{
     UIAlertController *alert = nil;
     if (!alert) {
-        alert = [UIAlertController alertControllerWithTitle:nil message:@"\n\n\n\n\n\n\n\n\n" preferredStyle:UIAlertControllerStyleActionSheet];//初始化一个标题为“选择时间”，风格是ActionSheet的UIAlertController，其中"\n"是为了给DatePicker腾出空间
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-            //点击确定按钮的事件处理
-        }];
-        
-        UIDatePicker *datePicker = [[UIDatePicker alloc] init];//初始化一个UIDatePicker
+        alert = [UIAlertController alertControllerWithTitle:nil message:@"\n\n\n\n\n\n\n\n\n" preferredStyle:UIAlertControllerStyleActionSheet];
+        UIDatePicker *datePicker = [[UIDatePicker alloc] init];
         datePicker.datePickerMode = UIDatePickerModeDate;
-        [alert.view addSubview:datePicker];//将datePicker添加到UIAlertController实例中
-        [alert addAction:cancel];//将确定按钮添加到UIAlertController实例中
+        [alert.view addSubview:datePicker];
+        __weak typeof(self)weakself = self;
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            NSDate *date = datePicker.date;
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+            NSString *dateString = [dateFormatter stringFromDate:date];
+            weakself.timeField.text = dateString;
+        }];
+        [alert addAction:cancel];
     }
     [self presentViewController:alert animated:YES completion:^{
     }];
 }
 
-- (void)oneDatePickerValueChanged:(UIDatePicker *) sender
-{
-
+- (void)selecteDateTime{
+    UIAlertController *alert = nil;
+    if (!alert) {
+        alert = [UIAlertController alertControllerWithTitle:nil message:@"\n\n\n\n\n\n\n\n\n" preferredStyle:UIAlertControllerStyleActionSheet];
+        UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        [alert.view addSubview:datePicker];
+        __weak typeof(self)weakself = self;
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            NSDate *date = datePicker.date;
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+            NSString *dateString = [dateFormatter stringFromDate:date];
+            weakself.jiezhiField.text = dateString;
+        }];
+        [alert addAction:cancel];
+    }
+    [self presentViewController:alert animated:YES completion:^{
+    }];
 }
 
 - (void)fujianAction:(id)sender
 {
-
+    UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"取消"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"拍照", @"从手机相册选择", nil];
+    choiceSheet.tag = 102;
+    [choiceSheet showInView:self.view];
 }
 
 - (void)submitAction
 {
-
+    if (!self.typeItem || self.typeItem.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择收文类别"];
+    }if (!self.fromItem || self.fromItem.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择来文机关"];
+    }if (!bianhaoField.text || bianhaoField.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入编号"];
+    }if (!fenshuField.text || fenshuField.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入来文份数"];
+    }if (!titleField.text || titleField.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入文件标题"];
+    }else{
+        [SVProgressHUD showWithStatus:@"提交中..."];
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSInteger uid = [userDefaults integerForKey:USER_ID];
+        
+        NSString *URLString = [NSString stringWithFormat:@"%@/add.php?act=add&uid=%ld", API_DOMAIN, uid];
+        
+        NSDictionary *parameters = @{@"type": _typeItem[@"id"],
+                                     @"swtime": self.timeField.text?self.timeField.text:@"",
+                                     @"danwei": _fromItem[@"name"]?_fromItem[@"name"]:@"",
+                                     @"bianhao": bianhaoField.text?bianhaoField.text:@"",
+                                     @"wenhao": wenhaoField.text?wenhaoField.text:@"",
+                                     @"fenshu": fenshuField.text?fenshuField.text:@"",
+                                     @"title": titleField.text?titleField.text:@"",
+                                     @"jttime": _jiezhiField.text?_jiezhiField.text:@"",
+                                     @"cont": contentTextView.text?contentTextView.text:@"",
+                                     @"user": nibanDict[@"name"]?nibanDict[@"name"]:@""};
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        
+        [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            for (int i = 0; i < _fileArray.count; i++) {
+                NSData *dd = _fileArray[i];
+                NSString *name = _fileNameArray[i];
+                if (dd && name) {
+                    [formData appendPartWithFileData:dd name:@"file" fileName:name mimeType:@"image/jpeg"];
+                }
+            }
+        } success:^(AFHTTPRequestOperation *operation,id responseObject) {
+            [SVProgressHUD dismiss];
+            NSDictionary *resultDict = [responseObject JSONValue];
+            if ([[resultDict objectForKey:@"state"] isEqualToString:@"ok"]) {
+                [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        } failure:^(AFHTTPRequestOperation *operation,NSError *error) {
+            NSLog(@"Error: %@", error);
+            [SVProgressHUD showSuccessWithStatus:@"提交失败"];
+        }];
+    }
 }
 
 - (void)checkFileType
@@ -484,6 +579,159 @@
         NSLog(@"Error: %@", error);
         [SVProgressHUD showErrorWithStatus:@"加载失败"];
     }];
+}
+
+#pragma mark UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (actionSheet.tag == 102) {//默认是本机
+        if (buttonIndex == 0) {
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            imagePicker.delegate = self;
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            imagePicker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+            imagePicker.allowsEditing = YES;
+            [self presentModalViewController:imagePicker animated:YES];
+        }else if (buttonIndex == 1) {
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            imagePicker.delegate = self;
+            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            imagePicker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+            imagePicker.allowsEditing = YES;
+            [self presentModalViewController:imagePicker animated:YES];
+        }
+    }
+}
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    NSURL *imageURL = [info valueForKey:UIImagePickerControllerReferenceURL];
+    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
+    {
+        ALAssetRepresentation *representation = [myasset defaultRepresentation];
+        NSString *uploadFileName = [representation filename];
+        NSLog(@"fileName : %@",uploadFileName);
+        UIImage *image= [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+            // UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        }
+        
+        [self saveImage:image WithName:uploadFileName];
+    };
+    ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
+    [assetslibrary assetForURL:imageURL
+                   resultBlock:resultblock
+                  failureBlock:nil];
+    
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
+- (void)saveImage:(UIImage *)tempImage WithName:(NSString *)imageName {
+    NSData* imageData = UIImagePNGRepresentation(tempImage);
+    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* documentsDirectory = [paths objectAtIndex:0];
+    // Now we get the full path to the file
+    NSString* fullPathToFile = [documentsDirectory stringByAppendingPathComponent:imageName];
+    // and then we write it out
+    [imageData writeToFile:fullPathToFile atomically:NO];
+    
+//    fileField.text = fullPathToFile;
+    UIView *fjView = [[UIView alloc] initWithFrame:CGRectMake(0, self.fileArray.count*40, fujianView.frame.size.width, 40)];
+    
+    if (!self.fileArray.count) {
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, fjView.frame.size.width, 0.5)];
+        lineView.backgroundColor = [UIColor lightGrayColor];
+        [fjView addSubview:lineView];
+    }
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 20, 20)];
+    imageView.image = [UIImage imageNamed:@"file_attach_img"];
+    [fjView addSubview:imageView];
+    
+    UILabel *fileNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(32, 0, fjView.frame.size.width-52, 40)];
+    fileNameLabel.textColor = [UIColor grayColor];
+    fileNameLabel.font = [UIFont systemFontOfSize:14.f];
+    fileNameLabel.text = imageName;
+    [fjView addSubview:fileNameLabel];
+    
+    UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(fileNameLabel.frame), 10, 20, 20)];
+    delBtn.backgroundColor = [UIColor clearColor];
+    [delBtn setTitle:@"X" forState:UIControlStateNormal];
+    [delBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [delBtn addTarget:self action:@selector(delFileAction:) forControlEvents:UIControlEventTouchUpInside];
+    delBtn.tag = self.fileArray.count+2000;
+    [fjView addSubview:delBtn];
+    
+    [_fileArray addObject:imageData];
+    [_fileNameArray addObject:imageName];
+    
+    [fujianView addSubview:fjView];
+    CGRect rect = fujianView.frame;
+    rect.size.height = (self.fileArray.count?self.fileArray.count:1)*40;
+    fujianView.frame = rect;
+    fileLineHView.frame = CGRectMake(60, fileLineHView.frame.origin.y, 0.5, rect.size.height-8);
+    
+    bottomView.frame = CGRectMake(0, CGRectGetMaxY(fujianView.frame), _MainScreen_Height, 96);
+    scrollView.contentSize = CGSizeMake(_MainScreen_Width, CGRectGetMaxY(bottomView.frame));
+}
+
+- (void)delFileAction:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    NSInteger i = btn.tag-2000;
+    if (_fileArray.count > i) {
+        [_fileArray removeObjectAtIndex:i];
+    }
+    if (_fileNameArray.count > i) {
+        [_fileNameArray removeObjectAtIndex:i];
+    }
+    
+    [fujianView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    for (int j = 0; j < _fileArray.count; j++) {
+        UIView *fjView = [[UIView alloc] initWithFrame:CGRectMake(0, j*40, fujianView.frame.size.width, 40)];
+        
+        if (!j) {
+            UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, fjView.frame.size.width, 0.5)];
+            lineView.backgroundColor = [UIColor lightGrayColor];
+            [fjView addSubview:lineView];
+        }
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 20, 20)];
+        imageView.image = [UIImage imageNamed:@"file_attach_img"];
+        [fjView addSubview:imageView];
+        
+        UILabel *fileNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(32, 0, fjView.frame.size.width-52, 40)];
+        fileNameLabel.textColor = [UIColor grayColor];
+        fileNameLabel.font = [UIFont systemFontOfSize:14.f];
+        fileNameLabel.text = _fileNameArray[j];
+        [fjView addSubview:fileNameLabel];
+        
+        UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(fileNameLabel.frame), 10, 20, 20)];
+        delBtn.backgroundColor = [UIColor clearColor];
+        [delBtn setTitle:@"X" forState:UIControlStateNormal];
+        [delBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [delBtn addTarget:self action:@selector(delFileAction:) forControlEvents:UIControlEventTouchUpInside];
+        delBtn.tag = self.fileArray.count+2000;
+        [fjView addSubview:delBtn];
+        
+        [fujianView addSubview:fjView];
+    }
+    
+    CGRect rect = fujianView.frame;
+    rect.size.height = (self.fileArray.count?self.fileArray.count:1)*40;
+    fujianView.frame = rect;
+    fileLineHView.frame = CGRectMake(60, fileLineHView.frame.origin.y, 0.5, rect.size.height-8);
+    
+    bottomView.frame = CGRectMake(0, CGRectGetMaxY(fujianView.frame), _MainScreen_Height, 96);
+    scrollView.contentSize = CGSizeMake(_MainScreen_Width, CGRectGetMaxY(bottomView.frame));
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 
 @end

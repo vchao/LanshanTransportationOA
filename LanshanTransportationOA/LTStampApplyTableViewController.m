@@ -51,6 +51,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+    
     _fileArray = [NSMutableArray new];
     _fileNameArray = [NSMutableArray new];
     
@@ -401,20 +405,24 @@
 
 - (void)checkStampType
 {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    
     LTMultiSelectAlertView *alertView = [[LTMultiSelectAlertView alloc] initWithArray:stampTypeArray title:@"选择印鉴类型"];
     __weak typeof(self)weakself = self;
     alertView.confirmButtonClicked = ^(NSArray *array){
-        weakself.typeItemArray = array;
-        NSString *typeStr = @"";
-        for (int i = 0; i < array.count; i++) {
-            NSDictionary *dict = array[i];
-            if (i == 0) {
-                typeStr = [dict objectForKey:@"name"];
-            }else{
-                typeStr = [NSString stringWithFormat:@"%@,%@", typeStr, [dict objectForKey:@"name"]];
+        if (array.count) {
+            weakself.typeItemArray = array;
+            NSString *typeStr = @"";
+            for (int i = 0; i < array.count; i++) {
+                NSDictionary *dict = array[i];
+                if (i == 0) {
+                    typeStr = [dict objectForKey:@"name"];
+                }else{
+                    typeStr = [NSString stringWithFormat:@"%@,%@", typeStr, [dict objectForKey:@"name"]];
+                }
             }
+            weakself.typeLabel.text = typeStr;
         }
-        weakself.typeLabel.text = typeStr;
     };
     alertView.cancelButtonClicked = ^{
         
@@ -424,20 +432,24 @@
 
 - (void)checkStampItem
 {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    
     LTMultiSelectAlertView *alertView = [[LTMultiSelectAlertView alloc] initWithArray:stampItemArray title:@"选择事项分类"];
     __weak typeof(self)weakself = self;
     alertView.confirmButtonClicked = ^(NSArray *array){
-        weakself.itemItemArray = array;
-        NSString *typeStr = @"";
-        for (int i = 0; i < array.count; i++) {
-            NSDictionary *dict = array[i];
-            if (i == 0) {
-                typeStr = [dict objectForKey:@"name"];
-            }else{
-                typeStr = [NSString stringWithFormat:@"%@,%@", typeStr, [dict objectForKey:@"name"]];
+        if (array.count) {
+            weakself.itemItemArray = array;
+            NSString *typeStr = @"";
+            for (int i = 0; i < array.count; i++) {
+                NSDictionary *dict = array[i];
+                if (i == 0) {
+                    typeStr = [dict objectForKey:@"name"];
+                }else{
+                    typeStr = [NSString stringWithFormat:@"%@,%@", typeStr, [dict objectForKey:@"name"]];
+                }
             }
+            weakself.itemLabel.text = typeStr;
         }
-        weakself.itemLabel.text = typeStr;
     };
     alertView.cancelButtonClicked = ^{
         
@@ -447,20 +459,24 @@
 
 - (void)checkStampShenpi
 {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    
     LTMultiSelectAlertView *alertView = [[LTMultiSelectAlertView alloc] initWithArray:shenpiArray title:@"选择审批人"];
     __weak typeof(self)weakself = self;
     alertView.confirmButtonClicked = ^(NSArray *array){
-        weakself.shenpiItemArray = array;
-        NSString *typeStr = @"";
-        for (int i = 0; i < array.count; i++) {
-            NSDictionary *dict = array[i];
-            if (i == 0) {
-                typeStr = [dict objectForKey:@"name"];
-            }else{
-                typeStr = [NSString stringWithFormat:@"%@,%@", typeStr, [dict objectForKey:@"name"]];
+        if (array.count) {
+            weakself.shenpiItemArray = array;
+            NSString *typeStr = @"";
+            for (int i = 0; i < array.count; i++) {
+                NSDictionary *dict = array[i];
+                if (i == 0) {
+                    typeStr = [dict objectForKey:@"name"];
+                }else{
+                    typeStr = [NSString stringWithFormat:@"%@,%@", typeStr, [dict objectForKey:@"name"]];
+                }
             }
+            weakself.shenpiLabel.text = typeStr;
         }
-        weakself.shenpiLabel.text = typeStr;
     };
     alertView.cancelButtonClicked = ^{
         
@@ -687,6 +703,10 @@
     
     bottomView.frame = CGRectMake(0, CGRectGetMaxY(fujianView.frame), _MainScreen_Height, 96);
     scrollView.contentSize = CGSizeMake(_MainScreen_Width, CGRectGetMaxY(bottomView.frame));
+}
+
+-(void)keyboardHide:(UITapGestureRecognizer*)tap{
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

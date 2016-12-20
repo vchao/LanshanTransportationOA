@@ -10,6 +10,10 @@
 		870EE60B1E03D06B00BFEC2E /* LTReviceFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870EE60A1E03D06B00BFEC2E /* LTReviceFileViewController.m */; };
 		870EE60E1E03D11900BFEC2E /* LTReviceFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 870EE60D1E03D11900BFEC2E /* LTReviceFileTableViewCell.m */; };
 		870EE6111E03E2BF00BFEC2E /* LTFileReceiveRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870EE6101E03E2BF00BFEC2E /* LTFileReceiveRegisterViewController.m */; };
+		871EC5251E08DE34002C1493 /* LTStampApprovalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 871EC5241E08DE34002C1493 /* LTStampApprovalViewController.m */; };
+		871EC5281E090ACF002C1493 /* LTMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 871EC5271E090ACF002C1493 /* LTMessageCenterViewController.m */; };
+		871EC52B1E090BA2002C1493 /* LTMessageCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 871EC52A1E090BA2002C1493 /* LTMessageCenterTableViewCell.m */; };
+		871EC52E1E090F98002C1493 /* LTMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 871EC52D1E090F98002C1493 /* LTMessageDetailViewController.m */; };
 		87415D0A1E0129C9005C5AEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D091E0129C9005C5AEA /* main.m */; };
 		87415D0D1E0129C9005C5AEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D0C1E0129C9005C5AEA /* AppDelegate.m */; };
 		87415D101E0129C9005C5AEA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D0F1E0129C9005C5AEA /* ViewController.m */; };
@@ -92,6 +96,14 @@
 		870EE60D1E03D11900BFEC2E /* LTReviceFileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTReviceFileTableViewCell.m; sourceTree = "<group>"; };
 		870EE60F1E03E2BF00BFEC2E /* LTFileReceiveRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTFileReceiveRegisterViewController.h; sourceTree = "<group>"; };
 		870EE6101E03E2BF00BFEC2E /* LTFileReceiveRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTFileReceiveRegisterViewController.m; sourceTree = "<group>"; };
+		871EC5231E08DE34002C1493 /* LTStampApprovalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStampApprovalViewController.h; sourceTree = "<group>"; };
+		871EC5241E08DE34002C1493 /* LTStampApprovalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStampApprovalViewController.m; sourceTree = "<group>"; };
+		871EC5261E090ACF002C1493 /* LTMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMessageCenterViewController.h; sourceTree = "<group>"; };
+		871EC5271E090ACF002C1493 /* LTMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMessageCenterViewController.m; sourceTree = "<group>"; };
+		871EC5291E090BA2002C1493 /* LTMessageCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMessageCenterTableViewCell.h; sourceTree = "<group>"; };
+		871EC52A1E090BA2002C1493 /* LTMessageCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMessageCenterTableViewCell.m; sourceTree = "<group>"; };
+		871EC52C1E090F98002C1493 /* LTMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMessageDetailViewController.h; sourceTree = "<group>"; };
+		871EC52D1E090F98002C1493 /* LTMessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMessageDetailViewController.m; sourceTree = "<group>"; };
 		87415D051E0129C9005C5AEA /* LanshanTransportationOA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanshanTransportationOA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87415D091E0129C9005C5AEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		87415D0B1E0129C9005C5AEA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -304,6 +316,14 @@
 				87F982F91E07DB6500AB5541 /* LTStampViewController.m */,
 				87F982FB1E07E4E400AB5541 /* LTStampApplyTableViewController.h */,
 				87F982FC1E07E4E400AB5541 /* LTStampApplyTableViewController.m */,
+				871EC5231E08DE34002C1493 /* LTStampApprovalViewController.h */,
+				871EC5241E08DE34002C1493 /* LTStampApprovalViewController.m */,
+				871EC5261E090ACF002C1493 /* LTMessageCenterViewController.h */,
+				871EC5271E090ACF002C1493 /* LTMessageCenterViewController.m */,
+				871EC5291E090BA2002C1493 /* LTMessageCenterTableViewCell.h */,
+				871EC52A1E090BA2002C1493 /* LTMessageCenterTableViewCell.m */,
+				871EC52C1E090F98002C1493 /* LTMessageDetailViewController.h */,
+				871EC52D1E090F98002C1493 /* LTMessageDetailViewController.m */,
 			);
 			path = LanshanTransportationOA;
 			sourceTree = "<group>";
@@ -599,6 +619,8 @@
 				878272AB1E0154D200DECCBD /* UIProgressView+AFNetworking.m in Sources */,
 				870EE60B1E03D06B00BFEC2E /* LTReviceFileViewController.m in Sources */,
 				87F982F71E07C6C800AB5541 /* LTContactCell.m in Sources */,
+				871EC52B1E090BA2002C1493 /* LTMessageCenterTableViewCell.m in Sources */,
+				871EC52E1E090F98002C1493 /* LTMessageDetailViewController.m in Sources */,
 				870EE60E1E03D11900BFEC2E /* LTReviceFileTableViewCell.m in Sources */,
 				8782726B1E0133FC00DECCBD /* LTMainViewController.m in Sources */,
 				878272A81E0154D200DECCBD /* UIAlertView+AFNetworking.m in Sources */,
@@ -636,10 +658,12 @@
 				878273001E0158D600DECCBD /* SBJsonWriter.m in Sources */,
 				87F982FA1E07DB6500AB5541 /* LTStampViewController.m in Sources */,
 				878272711E01542500DECCBD /* LTContactsViewController.m in Sources */,
+				871EC5281E090ACF002C1493 /* LTMessageCenterViewController.m in Sources */,
 				8782729F1E0154D200DECCBD /* AFHTTPSessionManager.m in Sources */,
 				878272741E01545400DECCBD /* LTCommunicateViewController.m in Sources */,
 				878272AD1E0154D200DECCBD /* UIWebView+AFNetworking.m in Sources */,
 				878272A01E0154D200DECCBD /* AFNetworkReachabilityManager.m in Sources */,
+				871EC5251E08DE34002C1493 /* LTStampApprovalViewController.m in Sources */,
 				878272F61E0158D600DECCBD /* SBJsonParser.m in Sources */,
 				878272AA1E0154D200DECCBD /* UIImageView+AFNetworking.m in Sources */,
 				8782729E1E0154D200DECCBD /* AFHTTPRequestOperationManager.m in Sources */,

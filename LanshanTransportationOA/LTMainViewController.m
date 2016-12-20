@@ -114,6 +114,7 @@
         //会议通知
     }else if (btn.tag == 1007) {
         //信息中心
+        [self performSegueWithIdentifier:@"pushToMessageCenter" sender:@"tapCell"];
     }else if (btn.tag == 1008) {
         //外出报备
     }else if (btn.tag == 1009) {

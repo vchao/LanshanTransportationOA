@@ -34,3 +34,13 @@
 - (instancetype)initWithArray:(NSArray *)array title:(NSString *)title;
 
 @end
+
+//多选alertView
+@interface LTMultiSelectAlertView : UIView
+
+@property (nonatomic, copy) void(^confirmButtonClicked)(NSArray *array);
+@property (nonatomic, copy) void(^cancelButtonClicked)(void);
+
+- (instancetype)initWithArray:(NSArray *)array title:(NSString *)title;
+
+@end

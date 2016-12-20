@@ -17,29 +17,32 @@
     UIScrollView *scrollView;
     UITextField *danweiField;
     UITextField *shiyouField;
-    UITextField *fenshuField;
     
     UIView      *fujianView;
     UIView      *fileLineHView;
     
     UIView      *bottomView;
-    UILabel     *shenpiLabel;
     UIButton    *submitBtn;
     
-    NSArray     *typeArray;
-    NSDictionary *nibanDict;
+    NSArray     *stampTypeArray;
+    NSArray     *stampItemArray;
+    NSArray     *shenpiArray;
     
     NSArray     *fromArray;
 }
 
 @property (nonatomic, strong) UILabel     *timeLabel;
-@property (nonatomic, strong) NSMutableArray *typeItemArray;
+@property (nonatomic, strong) NSString    *timeStr;
+@property (nonatomic, strong) NSArray     *typeItemArray;
 @property (nonatomic, strong) UILabel     *typeLabel;//印鉴类型
-@property (nonatomic, strong) NSMutableArray *itemItemArray;
+@property (nonatomic, strong) NSArray     *itemItemArray;
 @property (nonatomic, strong) UILabel     *itemLabel;//事项分类
 
 @property (nonatomic, strong) NSMutableArray *fileArray;
 @property (nonatomic, strong) NSMutableArray *fileNameArray;
+
+@property (nonatomic, strong) NSArray     *shenpiItemArray;
+@property (nonatomic, strong) UILabel     *shenpiLabel;//审批人
 
 @end
 
@@ -132,7 +135,7 @@
     lineHView3.backgroundColor = [UIColor lightGrayColor];
     [scrollView addSubview:lineHView3];
     
-    shiyouField = [[UITextField alloc] initWithFrame:CGRectMake(98, CGRectGetMaxY(timeDescLabel.frame)+4, _MainScreen_Width-106, 32)];
+    shiyouField = [[UITextField alloc] initWithFrame:CGRectMake(98, CGRectGetMaxY(danweiDescLabel.frame)+4, _MainScreen_Width-106, 32)];
     shiyouField.placeholder = @"请输入事由";
     shiyouField.tintColor = [UIColor grayColor];
     shiyouField.font = [UIFont systemFontOfSize:14.f];
@@ -164,12 +167,13 @@
     self.typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(98, CGRectGetMaxY(shiyouDescLabel.frame), _MainScreen_Width-106, 40)];
     self.typeLabel.textColor = [UIColor grayColor];
     self.typeLabel.font = [UIFont systemFontOfSize:14.f];
+    self.typeLabel.text = @"请选择印鉴类型";
     [scrollView addSubview:self.typeLabel];
     
-    UIView *fromView = [[UIView alloc] initWithFrame:self.typeLabel.frame];
-    [scrollView addSubview:fromView];
+    UIView *typeView = [[UIView alloc] initWithFrame:self.typeLabel.frame];
+    [scrollView addSubview:typeView];
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkStampType)];
-    [fromView addGestureRecognizer:tap2];
+    [typeView addGestureRecognizer:tap2];
     
     UIView *lineView4 = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(typeDescLabel.frame), _MainScreen_Width, 0.5)];
     lineView4.backgroundColor = [UIColor lightGrayColor];
@@ -195,18 +199,19 @@
     self.itemLabel = [[UILabel alloc] initWithFrame:CGRectMake(98, CGRectGetMaxY(typeDescLabel.frame), _MainScreen_Width-106, 40)];
     self.itemLabel.textColor = [UIColor grayColor];
     self.itemLabel.font = [UIFont systemFontOfSize:14.f];
+    self.itemLabel.text = @"请选择事项分类";
     [scrollView addSubview:self.itemLabel];
     
     UIView *itemView = [[UIView alloc] initWithFrame:self.itemLabel.frame];
     [scrollView addSubview:itemView];
     UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkStampItem)];
-    [fromView addGestureRecognizer:tap3];
+    [itemView addGestureRecognizer:tap3];
     
-    UIView *lineView5 = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(shiyouDescLabel.frame), _MainScreen_Width, 0.5)];
+    UIView *lineView5 = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(shixiangDescLabel.frame), _MainScreen_Width, 0.5)];
     lineView5.backgroundColor = [UIColor lightGrayColor];
     [scrollView addSubview:lineView5];
     
-    UILabel *fjDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, CGRectGetMaxY(shiyouDescLabel.frame), _MainScreen_Width-24, 40)];
+    UILabel *fjDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, CGRectGetMaxY(shixiangDescLabel.frame), _MainScreen_Width-24, 40)];
     fjDescLabel.textColor = [UIColor grayColor];
     fjDescLabel.font = [UIFont systemFontOfSize:14.f];
     fjDescLabel.text = @"附件格式：img,ong,gif,jpg,jpeg,doc,docx,pdf,xls,xlsx";
@@ -253,10 +258,16 @@
     lineHView10.backgroundColor = [UIColor lightGrayColor];
     [bottomView addSubview:lineHView10];
     
-    shenpiLabel = [[UILabel alloc] initWithFrame:CGRectMake(98, CGRectGetMaxY(lineView10.frame)+4, _MainScreen_Width-106, 32)];
-    shenpiLabel.textColor = [UIColor orangeColor];
-    shenpiLabel.font = [UIFont systemFontOfSize:14.f];
-    [bottomView addSubview:shenpiLabel];
+    self.shenpiLabel = [[UILabel alloc] initWithFrame:CGRectMake(98, CGRectGetMaxY(lineView10.frame)+4, _MainScreen_Width-106, 32)];
+    self.shenpiLabel.textColor = [UIColor orangeColor];
+    self.shenpiLabel.font = [UIFont systemFontOfSize:14.f];
+    self.shenpiLabel.text = @"请选择审批人";
+    [bottomView addSubview:self.shenpiLabel];
+    
+    UIView *shenpiView = [[UIView alloc] initWithFrame:self.shenpiLabel.frame];
+    [bottomView addSubview:shenpiView];
+    UITapGestureRecognizer *tap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkStampShenpi)];
+    [shenpiView addGestureRecognizer:tap4];
     
     UIView *lineView11 = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(shDescLabel.frame), _MainScreen_Width, 0.5)];
     lineView11.backgroundColor = [UIColor lightGrayColor];
@@ -272,7 +283,7 @@
     
     scrollView.contentSize = CGSizeMake(_MainScreen_Width, CGRectGetMaxY(bottomView.frame));
     
-    [self getFileAddDetail];
+    [self getStampType];
 }
 
 - (void)selecteDateTime{
@@ -289,6 +300,7 @@
             [dateFormatter setDateFormat:@"YYYY-MM-dd"];
             NSString *dateString = [dateFormatter stringFromDate:date];
             weakself.timeLabel.text = dateString;
+            weakself.timeStr = dateString;
         }];
         [alert addAction:cancel];
     }
@@ -309,113 +321,151 @@
 
 - (void)submitAction
 {
-//    if (!self.typeItem || self.typeItem.count == 0) {
-//        [SVProgressHUD showErrorWithStatus:@"请选择收文类别"];
-//    }if (!self.fromItem || self.fromItem.count == 0) {
-//        [SVProgressHUD showErrorWithStatus:@"请选择来文机关"];
-//    }if (!bianhaoField.text || bianhaoField.text.length == 0) {
-//        [SVProgressHUD showErrorWithStatus:@"请输入编号"];
-//    }if (!fenshuField.text || fenshuField.text.length == 0) {
-//        [SVProgressHUD showErrorWithStatus:@"请输入来文份数"];
-//    }if (!titleField.text || titleField.text.length == 0) {
-//        [SVProgressHUD showErrorWithStatus:@"请输入文件标题"];
-//    }else{
-//        [SVProgressHUD showWithStatus:@"提交中..."];
-//        
-//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//        NSInteger uid = [userDefaults integerForKey:USER_ID];
-//        
-//        NSString *URLString = [NSString stringWithFormat:@"%@/add.php?act=add&uid=%ld", API_DOMAIN, uid];
-//        
-//        NSDictionary *parameters = @{@"type": _typeItem[@"id"],
-//                                     @"swtime": self.timeField.text?self.timeField.text:@"",
-//                                     @"danwei": _fromItem[@"name"]?_fromItem[@"name"]:@"",
-//                                     @"bianhao": bianhaoField.text?bianhaoField.text:@"",
-//                                     @"wenhao": wenhaoField.text?wenhaoField.text:@"",
-//                                     @"fenshu": fenshuField.text?fenshuField.text:@"",
-//                                     @"title": titleField.text?titleField.text:@"",
-//                                     @"jttime": _jiezhiField.text?_jiezhiField.text:@"",
-//                                     @"cont": contentTextView.text?contentTextView.text:@"",
-//                                     @"user": nibanDict[@"name"]?nibanDict[@"name"]:@""};
-//        
-//        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-//        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//        
-//        [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-//            for (int i = 0; i < _fileArray.count; i++) {
-//                NSData *dd = _fileArray[i];
-//                NSString *name = _fileNameArray[i];
-//                if (dd && name) {
-//                    [formData appendPartWithFileData:dd name:[NSString stringWithFormat:@"file[%d]", i] fileName:name mimeType:@"image/jpeg"];
-//                }
-//            }
-//        } success:^(AFHTTPRequestOperation *operation,id responseObject) {
-//            [SVProgressHUD dismiss];
-//            //            NSDictionary *resultDict = [responseObject JSONValue];
-//            //            if ([[resultDict objectForKey:@"state"] isEqualToString:@"ok"]) {
-//            [SVProgressHUD showSuccessWithStatus:@"提交成功"];
-//            [self.navigationController popViewControllerAnimated:YES];
-//            //            }
-//        } failure:^(AFHTTPRequestOperation *operation,NSError *error) {
-//            NSLog(@"Error: %@", error);
-//            [SVProgressHUD showSuccessWithStatus:@"提交失败"];
-//        }];
-//    }
+    if (!self.timeStr || self.timeStr.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择用印时间"];
+    }else if (!self.typeItemArray || self.typeItemArray.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择印鉴类型"];
+    }if (!self.itemItemArray || self.itemItemArray.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择事项分类"];
+    }if (!danweiField.text || danweiField.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入用印单位"];
+    }if (!shiyouField.text || shiyouField.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入事由"];
+    }else{
+        [SVProgressHUD showWithStatus:@"提交中..."];
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSInteger uid = [userDefaults integerForKey:USER_ID];
+        
+        NSString *URLString = [NSString stringWithFormat:@"%@/stamp.php?act=add&uid=%ld", API_DOMAIN, uid];
+        
+        NSString *typeStr = @"";
+        for (int i = 0; i < self.typeItemArray.count; i++) {
+            NSDictionary *dict = [self.typeItemArray objectAtIndex:i];
+            if (i == 0) {
+                typeStr = [dict objectForKey:@"id"];
+            }else{
+                typeStr = [NSString stringWithFormat:@"%@|%@",typeStr, [dict objectForKey:@"id"]];
+            }
+        }
+        NSString *itemStr = @"";
+        for (int i = 0; i < self.itemItemArray.count; i++) {
+            NSDictionary *dict = [self.itemItemArray objectAtIndex:i];
+            if (i == 0) {
+                itemStr = [dict objectForKey:@"id"];
+            }else{
+                itemStr = [NSString stringWithFormat:@"%@|%@",itemStr, [dict objectForKey:@"id"]];
+            }
+        }
+        NSString *appUserStr = @"";
+        for (int i = 0; i < self.shenpiItemArray.count; i++) {
+            NSDictionary *dict = [self.shenpiItemArray objectAtIndex:i];
+            if (i == 0) {
+                appUserStr = [dict objectForKey:@"id"];
+            }else{
+                appUserStr = [NSString stringWithFormat:@"%@|%@",appUserStr, [dict objectForKey:@"id"]];
+            }
+        }
+        NSDictionary *parameters = @{@"type": typeStr,
+                                     @"time": self.timeStr,
+                                     @"danwei": danweiField.text?danweiField.text:@"",
+                                     @"item": itemStr,
+                                     @"shiyou": shiyouField.text?shiyouField.text:@"",
+                                     @"appuser": appUserStr};
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        
+        [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            for (int i = 0; i < _fileArray.count; i++) {
+                NSData *dd = _fileArray[i];
+                NSString *name = _fileNameArray[i];
+                if (dd && name) {
+                    [formData appendPartWithFileData:dd name:[NSString stringWithFormat:@"file[%d]", i] fileName:name mimeType:@"image/jpeg"];
+                }
+            }
+        } success:^(AFHTTPRequestOperation *operation,id responseObject) {
+            [SVProgressHUD dismiss];
+            //            NSDictionary *resultDict = [responseObject JSONValue];
+            //            if ([[resultDict objectForKey:@"state"] isEqualToString:@"ok"]) {
+            [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+            //            }
+        } failure:^(AFHTTPRequestOperation *operation,NSError *error) {
+            NSLog(@"Error: %@", error);
+            [SVProgressHUD showSuccessWithStatus:@"提交失败"];
+        }];
+    }
 }
 
-- (void)checkFileType
+- (void)checkStampType
 {
-//    LTListAlertView *listAlertView = [[LTListAlertView alloc] initWithArray:typeArray title:@"选择收文类别"];
-//    __weak typeof(self)weakself = self;
-//    listAlertView.checkItemClicked = ^(NSDictionary *item){
-//        weakself.typeItem = item;
-//        weakself.typeField.text = [item objectForKey:@"name"];
-//    };
-//    listAlertView.cancelButtonClicked = ^{
-//        
-//    };
-//    [self.navigationController.view addSubview:listAlertView];
+    LTMultiSelectAlertView *alertView = [[LTMultiSelectAlertView alloc] initWithArray:stampTypeArray title:@"选择印鉴类型"];
+    __weak typeof(self)weakself = self;
+    alertView.confirmButtonClicked = ^(NSArray *array){
+        weakself.typeItemArray = array;
+        NSString *typeStr = @"";
+        for (int i = 0; i < array.count; i++) {
+            NSDictionary *dict = array[i];
+            if (i == 0) {
+                typeStr = [dict objectForKey:@"name"];
+            }else{
+                typeStr = [NSString stringWithFormat:@"%@,%@", typeStr, [dict objectForKey:@"name"]];
+            }
+        }
+        weakself.typeLabel.text = typeStr;
+    };
+    alertView.cancelButtonClicked = ^{
+        
+    };
+    [self.navigationController.view addSubview:alertView];
 }
 
-- (void)checkFileFrom
+- (void)checkStampItem
 {
-//    if (!self.typeItem || self.typeItem.count == 0) {
-//        [SVProgressHUD showErrorWithStatus:@"请选择收文类别"];
-//    }else{
-//        [SVProgressHUD showWithStatus:@"加载中..."];
-//        
-//        NSString *URLString = [NSString stringWithFormat:@"%@/add.php?act=get_type&type=%@",
-//                               API_DOMAIN, [self.typeItem objectForKey:@"id"]];
-//        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-//        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//        [manager POST:URLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            [SVProgressHUD dismiss];
-//            NSMutableDictionary *resultDict = [responseObject JSONValue];
-//            NSArray *array = [resultDict objectForKey:@"type"];
-//            NSMutableArray *fArray = [NSMutableArray new];
-//            for (int i = 0; i < array.count; i++) {
-//                NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:array[i], @"name", nil];
-//                [fArray addObject:dict];
-//            }
-//            fromArray = fArray;
-//            
-//            LTListAlertView *listAlertView = [[LTListAlertView alloc] initWithArray:fromArray title:@"选择来文机关"];
-//            __weak typeof(self)weakself = self;
-//            listAlertView.checkItemClicked = ^(NSDictionary *item){
-//                weakself.fromItem = item;
-//                weakself.fromField.text = [item objectForKey:@"name"];
-//            };
-//            listAlertView.cancelButtonClicked = ^{
-//                
-//            };
-//            [self.navigationController.view addSubview:listAlertView];
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            NSLog(@"Error: %@", error);
-//            [SVProgressHUD showErrorWithStatus:@"加载失败"];
-//        }];
-//    }
+    LTMultiSelectAlertView *alertView = [[LTMultiSelectAlertView alloc] initWithArray:stampItemArray title:@"选择事项分类"];
+    __weak typeof(self)weakself = self;
+    alertView.confirmButtonClicked = ^(NSArray *array){
+        weakself.itemItemArray = array;
+        NSString *typeStr = @"";
+        for (int i = 0; i < array.count; i++) {
+            NSDictionary *dict = array[i];
+            if (i == 0) {
+                typeStr = [dict objectForKey:@"name"];
+            }else{
+                typeStr = [NSString stringWithFormat:@"%@,%@", typeStr, [dict objectForKey:@"name"]];
+            }
+        }
+        weakself.itemLabel.text = typeStr;
+    };
+    alertView.cancelButtonClicked = ^{
+        
+    };
+    [self.navigationController.view addSubview:alertView];
+}
+
+- (void)checkStampShenpi
+{
+    LTMultiSelectAlertView *alertView = [[LTMultiSelectAlertView alloc] initWithArray:shenpiArray title:@"选择审批人"];
+    __weak typeof(self)weakself = self;
+    alertView.confirmButtonClicked = ^(NSArray *array){
+        weakself.shenpiItemArray = array;
+        NSString *typeStr = @"";
+        for (int i = 0; i < array.count; i++) {
+            NSDictionary *dict = array[i];
+            if (i == 0) {
+                typeStr = [dict objectForKey:@"name"];
+            }else{
+                typeStr = [NSString stringWithFormat:@"%@,%@", typeStr, [dict objectForKey:@"name"]];
+            }
+        }
+        weakself.shenpiLabel.text = typeStr;
+    };
+    alertView.cancelButtonClicked = ^{
+        
+    };
+    [self.navigationController.view addSubview:alertView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -423,25 +473,71 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)getFileAddDetail{
-//    [SVProgressHUD showWithStatus:@"加载中..."];
-//    
-//    NSString *URLString = [NSString stringWithFormat:@"%@/add.php",
-//                           API_DOMAIN];
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    [manager POST:URLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        [SVProgressHUD dismiss];
-//        NSMutableDictionary *resultDict = [responseObject JSONValue];
-//        typeArray = [resultDict objectForKey:@"type"];
-//        nibanDict = [resultDict objectForKey:@"niban"];
-//        
-//        shenheLabel.text = [nibanDict objectForKey:@"name"];
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//        [SVProgressHUD showErrorWithStatus:@"加载失败"];
-//    }];
+//获取印鉴类别
+- (void)getStampType{
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    
+    NSString *URLString = [NSString stringWithFormat:@"%@/stamp.php?act=get_type",
+                           API_DOMAIN];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:URLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
+        NSDictionary *resultDict = [responseObject JSONValue];
+        stampTypeArray = [resultDict objectForKey:@"info"];
+        [self getStampItem];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        [SVProgressHUD showErrorWithStatus:@"加载失败"];
+    }];
+}
+
+//获取印鉴使用事项
+- (void)getStampItem{
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    
+    NSString *URLString = [NSString stringWithFormat:@"%@/stamp.php?act=get_item",
+                           API_DOMAIN];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:URLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
+        NSDictionary *resultDict = [responseObject JSONValue];
+        stampItemArray = [resultDict objectForKey:@"info"];
+        [self getStampAppuser];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        [SVProgressHUD showErrorWithStatus:@"加载失败"];
+    }];
+}
+
+//获取审批人
+- (void)getStampAppuser{
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSInteger uid = [userDefaults integerForKey:USER_ID];
+    NSString *URLString = [NSString stringWithFormat:@"%@/stamp.php?act=appuser&uid=%ld", API_DOMAIN, uid];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:URLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
+        NSDictionary *dict = [responseObject JSONValue];
+        shenpiArray = [dict objectForKey:@"user"];
+        NSMutableArray *array = [NSMutableArray new];
+        for (int i = 0; i < shenpiArray.count; i++) {
+            NSDictionary *d = [shenpiArray objectAtIndex:i];
+            NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[d objectForKey:@"id"], @"id", [d objectForKey:@"realname"], @"name", [d objectForKey:@"depart"], @"depart", nil];
+            [array addObject:dict];
+        }
+        shenpiArray = [NSArray arrayWithArray:array];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        [SVProgressHUD showErrorWithStatus:@"加载失败"];
+    }];
 }
 
 #pragma mark UIActionSheetDelegate

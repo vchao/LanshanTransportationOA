@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LTStampApplyTableViewController : UITableViewController
+@interface LTStampApplyTableViewController : UIViewController
 
 @end

@@ -456,3 +456,181 @@
 }
 
 @end
+
+@interface LTMultiSelectAlertView ()<UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic ,weak) UIView *contentView;
+@property (nonatomic ,weak) UILabel *titleLabel;
+@property (nonatomic ,weak) UIView *topLineView;
+@property (nonatomic ,weak) UITableView *tableView;
+@property (nonatomic ,weak) UIView *bottomLineView;
+@property (nonatomic ,weak) UIButton *confirmBtn;
+@property (nonatomic ,weak) UIButton *cancelBtn;
+@property (nonatomic ,strong) NSArray *array;
+@property (nonatomic ,strong) NSMutableArray *selectArray;
+@end
+
+@implementation LTMultiSelectAlertView
+
+- (instancetype)initWithArray:(NSArray *)array title:(NSString *)title
+{
+    self = [super initWithFrame:CGRectMake(0, 0, _MainScreen_Width, _MainScreen_Height)];
+    if (self) {
+        self.array = array;
+        self.selectArray = [NSMutableArray new];
+        [self setListUI];
+        self.titleLabel.text = title;
+        [self.tableView reloadData];
+    }
+    
+    return self;
+}
+
+- (void)setListUI{
+    [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.7]];
+    
+    UIView *contentView = [[UIView alloc] init];
+    self.contentView = contentView;
+    contentView.backgroundColor = [UIColor whiteColor];
+    contentView.layer.cornerRadius = 8;
+    contentView.layer.masksToBounds = YES;
+    [self addSubview:contentView];
+    
+    UILabel *titleLabel = [[UILabel alloc] init];
+    self.titleLabel = titleLabel;
+    titleLabel.textColor = [UIColor grayColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.font = [UIFont systemFontOfSize:18.f];
+    [contentView addSubview:titleLabel];
+    
+    UIView *topLineView = [[UIView alloc] init];
+    self.topLineView = topLineView;
+    topLineView.backgroundColor = [UIColor colorWithRed:232/255.f green:232/255.f blue:232/255.f alpha:232/255.f];
+    [contentView addSubview:topLineView];
+    
+    UITableView *tableView = [[UITableView alloc] init];
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"LTMultiSelectTableViewCell"];
+    self.tableView = tableView;
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    [contentView addSubview:tableView];
+    
+    UIView *bottomLineView = [[UIView alloc] init];
+    self.bottomLineView = bottomLineView;
+    bottomLineView.backgroundColor = [UIColor colorWithRed:232/255.f green:232/255.f blue:232/255.f alpha:232/255.f];
+    [contentView addSubview:bottomLineView];
+    
+    UIButton *confirmBtn = [[UIButton alloc] init];
+    self.confirmBtn = confirmBtn;
+    confirmBtn.backgroundColor = [UIColor colorWithRed:32.f/255.f green:148.f/255.f blue:254/255.f alpha:1.f];
+    confirmBtn.layer.cornerRadius = 4.f;
+    confirmBtn.layer.masksToBounds = YES;
+    [confirmBtn setTitle:@"确定" forState:UIControlStateNormal];
+    [confirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [confirmBtn addTarget:self action:@selector(confirmBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [contentView addSubview:confirmBtn];
+    
+    UIButton *cancelBtn = [[UIButton alloc] init];
+    self.cancelBtn = cancelBtn;
+    cancelBtn.backgroundColor = [UIColor whiteColor];
+    cancelBtn.layer.cornerRadius = 4.f;
+    cancelBtn.layer.masksToBounds = YES;
+    cancelBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    cancelBtn.layer.borderWidth = 0.5;
+    [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [cancelBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [cancelBtn addTarget:self action:@selector(cancleBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [contentView addSubview:cancelBtn];
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    CGFloat contentW = _MainScreen_Width - 86;
+    CGFloat contentH = 243;
+    self.contentView.bounds = CGRectMake(0, 0, contentW, contentH);
+    self.contentView.center = self.center;
+    
+    self.titleLabel.frame = CGRectMake(12, 0, self.contentView.frame.size.width-24, 40);
+    self.topLineView.frame = CGRectMake(0, 39.5, self.contentView.frame.size.width, 0.5);
+    CGFloat tableH = (self.array.count?self.array.count:1)*40;
+    if (tableH+48+40 > _MainScreen_Height-86) {
+        tableH = _MainScreen_Height-86-48-40;
+    }
+    self.tableView.frame = CGRectMake(0, 40, contentW, tableH);
+    self.bottomLineView.frame = CGRectMake(0, CGRectGetMaxY(self.tableView.frame), self.contentView.frame.size.width, 0.5);
+    
+    self.confirmBtn.frame = CGRectMake(8, CGRectGetMaxY(self.tableView.frame)+8, (contentW-24)/2.f, 40);
+    self.cancelBtn.frame = CGRectMake(CGRectGetMaxX(self.confirmBtn.frame)+8, CGRectGetMaxY(self.tableView.frame)+8, (contentW-24)/2.f, 40);
+    
+    self.contentView.bounds = CGRectMake(0, 0, contentW, CGRectGetMaxY(self.cancelBtn.frame)+8);
+    self.contentView.center = self.center;
+}
+
+- (void)confirmBtnClick{
+    if (_confirmButtonClicked) {
+        self.confirmButtonClicked(self.selectArray);
+        [self removeFromSuperview];
+    }else{
+        [self removeFromSuperview];
+    }
+}
+
+- (void)cancleBtnClick{
+    if (_cancelButtonClicked) {
+        self.cancelButtonClicked();
+        [self removeFromSuperview];
+    }  else {
+        [self removeFromSuperview];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.array count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 40.f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *CellIdentifier = [NSString stringWithFormat:@"LTMultiSelectTableViewCell_%ld", indexPath.row];
+    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    NSDictionary *dict = [self.array objectAtIndex:indexPath.row];
+    
+    UIImageView *checkImageView = [[UIImageView alloc] initWithFrame:CGRectMake(12, 10, 20, 20)];
+    if ([self.selectArray containsObject:dict]) {
+        checkImageView.image = SY_IMAGE(@"radiobutton_pressed");
+    }else{
+        checkImageView.image = SY_IMAGE(@"radiobutton_numal");
+    }
+    [cell addSubview:checkImageView];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, self.contentView.frame.size.width-48, 40)];
+    titleLabel.font = [UIFont systemFontOfSize:14.f];
+    titleLabel.textColor = [UIColor grayColor];
+    titleLabel.text = [dict objectForKey:@"name"];
+    [cell addSubview:titleLabel];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *dict = [self.array objectAtIndex:indexPath.row];
+    if ([self.selectArray containsObject:dict]) {
+        [self.selectArray removeObject:dict];
+    }else{
+        [self.selectArray addObject:dict];
+    }
+    NSArray <NSIndexPath *> *indexPathArray = @[indexPath];
+    [tableView reloadRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+@end

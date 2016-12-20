@@ -164,7 +164,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gDN-lO-9qu" id="WFO-3G-fKB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -234,10 +234,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LTContactsTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="LTContactsTableViewCell" id="oAa-R1-7dQ" customClass="LTContactsTableViewCell">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oAa-R1-7dQ" id="WDt-WT-9y2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="MNm-BO-Mhe">
@@ -355,7 +355,7 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oMa-ha-8RQ" id="U1B-yG-eUl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="协同办公平台培训会        2014-11-03 08:50 会议室1032" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPY-vW-1RO">
@@ -1059,8 +1059,8 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="xcJ-po-kp4"/>
-                                <exclude reference="KXO-HI-QRI"/>
                                 <exclude reference="UeO-LV-wYL"/>
+                                <exclude reference="KXO-HI-QRI"/>
                             </mask>
                         </variation>
                     </view>

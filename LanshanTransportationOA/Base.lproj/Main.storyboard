@@ -182,11 +182,18 @@
                             <constraint firstItem="wyL-5M-JE9" firstAttribute="top" secondItem="fJ8-9o-m9K" secondAttribute="bottom" id="uus-C6-9gF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="信息中心" id="NuZ-ki-tWu"/>
+                    <navigationItem key="navigationItem" title="信息中心" id="NuZ-ki-tWu">
+                        <barButtonItem key="rightBarButtonItem" title="添加" id="rLI-Ib-FJU">
+                            <connections>
+                                <action selector="addMessageAction:" destination="4M2-aa-PHg" id="l68-ar-fT1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="messageTableView" destination="fJ8-9o-m9K" id="vIG-Hc-FQp"/>
                         <segue destination="KOQ-YZ-OYu" kind="push" identifier="pushToMessageDetail" id="jvk-4b-Rm7"/>
+                        <segue destination="GFr-Sf-1jM" kind="push" identifier="pushToAddMessage" id="7L5-Sj-cJd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtW-Xl-Ub8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1265,6 +1272,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTB-Fz-Qtm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5919" y="-1191"/>
+        </scene>
+        <!--信息中心添加-->
+        <scene sceneID="Xle-ex-fTb">
+            <objects>
+                <viewController id="GFr-Sf-1jM" customClass="LTMessageAddViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IAJ-Lv-Jo1"/>
+                        <viewControllerLayoutGuide type="bottom" id="jIB-Og-dwj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c0p-xr-c2Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="信息中心添加" id="EoQ-5q-MPT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rAV-XS-XEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4918" y="636"/>
         </scene>
         <!--信息详情-->
         <scene sceneID="TYd-Im-ss8">

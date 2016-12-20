@@ -14,6 +14,7 @@
 		871EC5281E090ACF002C1493 /* LTMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 871EC5271E090ACF002C1493 /* LTMessageCenterViewController.m */; };
 		871EC52B1E090BA2002C1493 /* LTMessageCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 871EC52A1E090BA2002C1493 /* LTMessageCenterTableViewCell.m */; };
 		871EC52E1E090F98002C1493 /* LTMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 871EC52D1E090F98002C1493 /* LTMessageDetailViewController.m */; };
+		871EC5311E0917CE002C1493 /* LTMessageAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 871EC5301E0917CE002C1493 /* LTMessageAddViewController.m */; };
 		87415D0A1E0129C9005C5AEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D091E0129C9005C5AEA /* main.m */; };
 		87415D0D1E0129C9005C5AEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D0C1E0129C9005C5AEA /* AppDelegate.m */; };
 		87415D101E0129C9005C5AEA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D0F1E0129C9005C5AEA /* ViewController.m */; };
@@ -104,6 +105,8 @@
 		871EC52A1E090BA2002C1493 /* LTMessageCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMessageCenterTableViewCell.m; sourceTree = "<group>"; };
 		871EC52C1E090F98002C1493 /* LTMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMessageDetailViewController.h; sourceTree = "<group>"; };
 		871EC52D1E090F98002C1493 /* LTMessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMessageDetailViewController.m; sourceTree = "<group>"; };
+		871EC52F1E0917CE002C1493 /* LTMessageAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMessageAddViewController.h; sourceTree = "<group>"; };
+		871EC5301E0917CE002C1493 /* LTMessageAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMessageAddViewController.m; sourceTree = "<group>"; };
 		87415D051E0129C9005C5AEA /* LanshanTransportationOA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanshanTransportationOA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87415D091E0129C9005C5AEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		87415D0B1E0129C9005C5AEA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -324,6 +327,8 @@
 				871EC52A1E090BA2002C1493 /* LTMessageCenterTableViewCell.m */,
 				871EC52C1E090F98002C1493 /* LTMessageDetailViewController.h */,
 				871EC52D1E090F98002C1493 /* LTMessageDetailViewController.m */,
+				871EC52F1E0917CE002C1493 /* LTMessageAddViewController.h */,
+				871EC5301E0917CE002C1493 /* LTMessageAddViewController.m */,
 			);
 			path = LanshanTransportationOA;
 			sourceTree = "<group>";
@@ -654,6 +659,7 @@
 				878272A51E0154D200DECCBD /* AFURLSessionManager.m in Sources */,
 				87415D0A1E0129C9005C5AEA /* main.m in Sources */,
 				87F982ED1E07B7C700AB5541 /* LTMailDetailViewController.m in Sources */,
+				871EC5311E0917CE002C1493 /* LTMessageAddViewController.m in Sources */,
 				878272F51E0158D600DECCBD /* NSObject+SBJson.m in Sources */,
 				878273001E0158D600DECCBD /* SBJsonWriter.m in Sources */,
 				87F982FA1E07DB6500AB5541 /* LTStampViewController.m in Sources */,

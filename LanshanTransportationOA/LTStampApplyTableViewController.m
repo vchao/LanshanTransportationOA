@@ -329,11 +329,11 @@
         [SVProgressHUD showErrorWithStatus:@"请选择用印时间"];
     }else if (!self.typeItemArray || self.typeItemArray.count == 0) {
         [SVProgressHUD showErrorWithStatus:@"请选择印鉴类型"];
-    }if (!self.itemItemArray || self.itemItemArray.count == 0) {
+    }else if (!self.itemItemArray || self.itemItemArray.count == 0) {
         [SVProgressHUD showErrorWithStatus:@"请选择事项分类"];
-    }if (!danweiField.text || danweiField.text.length == 0) {
+    }else if (!danweiField.text || danweiField.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入用印单位"];
-    }if (!shiyouField.text || shiyouField.text.length == 0) {
+    }else if (!shiyouField.text || shiyouField.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入事由"];
     }else{
         [SVProgressHUD showWithStatus:@"提交中..."];
@@ -407,7 +407,7 @@
 {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     
-    LTMultiSelectAlertView *alertView = [[LTMultiSelectAlertView alloc] initWithArray:stampTypeArray title:@"选择印鉴类型"];
+    LTMultiSelectAlertView *alertView = [[LTMultiSelectAlertView alloc] initWithArray:stampTypeArray title:@"选择印鉴类型" listTitlekey:@"name" canSelectAll:NO];
     __weak typeof(self)weakself = self;
     alertView.confirmButtonClicked = ^(NSArray *array){
         if (array.count) {
@@ -434,7 +434,7 @@
 {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     
-    LTMultiSelectAlertView *alertView = [[LTMultiSelectAlertView alloc] initWithArray:stampItemArray title:@"选择事项分类"];
+    LTMultiSelectAlertView *alertView = [[LTMultiSelectAlertView alloc] initWithArray:stampItemArray title:@"选择事项分类" listTitlekey:@"name" canSelectAll:NO];
     __weak typeof(self)weakself = self;
     alertView.confirmButtonClicked = ^(NSArray *array){
         if (array.count) {
@@ -461,7 +461,7 @@
 {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     
-    LTMultiSelectAlertView *alertView = [[LTMultiSelectAlertView alloc] initWithArray:shenpiArray title:@"选择审批人"];
+    LTMultiSelectAlertView *alertView = [[LTMultiSelectAlertView alloc] initWithArray:shenpiArray title:@"选择审批人" listTitlekey:@"realname" canSelectAll:NO];
     __weak typeof(self)weakself = self;
     alertView.confirmButtonClicked = ^(NSArray *array){
         if (array.count) {
@@ -470,9 +470,9 @@
             for (int i = 0; i < array.count; i++) {
                 NSDictionary *dict = array[i];
                 if (i == 0) {
-                    typeStr = [dict objectForKey:@"name"];
+                    typeStr = [dict objectForKey:@"realname"];
                 }else{
-                    typeStr = [NSString stringWithFormat:@"%@,%@", typeStr, [dict objectForKey:@"name"]];
+                    typeStr = [NSString stringWithFormat:@"%@,%@", typeStr, [dict objectForKey:@"realname"]];
                 }
             }
             weakself.shenpiLabel.text = typeStr;
@@ -543,13 +543,6 @@
         [SVProgressHUD dismiss];
         NSDictionary *dict = [responseObject JSONValue];
         shenpiArray = [dict objectForKey:@"user"];
-        NSMutableArray *array = [NSMutableArray new];
-        for (int i = 0; i < shenpiArray.count; i++) {
-            NSDictionary *d = [shenpiArray objectAtIndex:i];
-            NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[d objectForKey:@"id"], @"id", [d objectForKey:@"realname"], @"name", [d objectForKey:@"depart"], @"depart", nil];
-            [array addObject:dict];
-        }
-        shenpiArray = [NSArray arrayWithArray:array];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         [SVProgressHUD showErrorWithStatus:@"加载失败"];

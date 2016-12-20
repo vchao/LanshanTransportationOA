@@ -448,13 +448,13 @@
 {
     if (!self.typeItem || self.typeItem.count == 0) {
         [SVProgressHUD showErrorWithStatus:@"请选择收文类别"];
-    }if (!self.fromItem || self.fromItem.count == 0) {
+    }else if (!self.fromItem || self.fromItem.count == 0) {
         [SVProgressHUD showErrorWithStatus:@"请选择来文机关"];
-    }if (!bianhaoField.text || bianhaoField.text.length == 0) {
+    }else if (!bianhaoField.text || bianhaoField.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入编号"];
-    }if (!fenshuField.text || fenshuField.text.length == 0) {
+    }else if (!fenshuField.text || fenshuField.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入来文份数"];
-    }if (!titleField.text || titleField.text.length == 0) {
+    }else if (!titleField.text || titleField.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入文件标题"];
     }else{
         [SVProgressHUD showWithStatus:@"提交中..."];

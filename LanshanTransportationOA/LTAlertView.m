@@ -460,6 +460,7 @@
 @interface LTMultiSelectAlertView ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic ,weak) UIView *contentView;
 @property (nonatomic ,weak) UILabel *titleLabel;
+@property (nonatomic ,weak) UIButton *selectAllBtn;
 @property (nonatomic ,weak) UIView *topLineView;
 @property (nonatomic ,weak) UITableView *tableView;
 @property (nonatomic ,weak) UIView *bottomLineView;
@@ -467,17 +468,20 @@
 @property (nonatomic ,weak) UIButton *cancelBtn;
 @property (nonatomic ,strong) NSArray *array;
 @property (nonatomic ,strong) NSMutableArray *selectArray;
+@property (nonatomic ,strong) NSString *key;
+
 @end
 
 @implementation LTMultiSelectAlertView
 
-- (instancetype)initWithArray:(NSArray *)array title:(NSString *)title
+- (instancetype)initWithArray:(NSArray *)array title:(NSString *)title listTitlekey:(NSString *)key canSelectAll:(BOOL)selectAll
 {
     self = [super initWithFrame:CGRectMake(0, 0, _MainScreen_Width, _MainScreen_Height)];
     if (self) {
         self.array = array;
+        self.key = key;
         self.selectArray = [NSMutableArray new];
-        [self setListUI];
+        [self setListUI:selectAll];
         self.titleLabel.text = title;
         [self.tableView reloadData];
     }
@@ -485,7 +489,7 @@
     return self;
 }
 
-- (void)setListUI{
+- (void)setListUI:(BOOL)selectAll{
     [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.7]];
     
     UIView *contentView = [[UIView alloc] init];
@@ -501,6 +505,14 @@
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.font = [UIFont systemFontOfSize:18.f];
     [contentView addSubview:titleLabel];
+    
+    UIButton *selectAllBtn = [[UIButton alloc] init];
+    self.selectAllBtn = selectAllBtn;
+    [selectAllBtn setTitle:@"全选" forState:UIControlStateNormal];
+    [selectAllBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    selectAllBtn.titleLabel.font = [UIFont systemFontOfSize:14.f];
+    [selectAllBtn addTarget:self action:@selector(selectAllBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [contentView addSubview:selectAllBtn];
     
     UIView *topLineView = [[UIView alloc] init];
     self.topLineView = topLineView;
@@ -550,6 +562,7 @@
     self.contentView.center = self.center;
     
     self.titleLabel.frame = CGRectMake(12, 0, self.contentView.frame.size.width-24, 40);
+    self.selectAllBtn.frame = CGRectMake(self.contentView.frame.size.width-68, 0, 60, 40);
     self.topLineView.frame = CGRectMake(0, 39.5, self.contentView.frame.size.width, 0.5);
     CGFloat tableH = (self.array.count?self.array.count:1)*40;
     if (tableH+48+40 > _MainScreen_Height-86) {
@@ -583,6 +596,20 @@
     }
 }
 
+- (void)selectAllBtnAction:(id)sender{
+    UIButton *btn = (UIButton *)sender;
+    if ([btn.titleLabel.text isEqualToString:@"全选"]) {
+        //全选
+        self.selectArray = [NSMutableArray arrayWithArray:self.array];
+        [self.selectAllBtn setTitle:@"取消全选" forState:UIControlStateNormal];
+    }else{
+        //取消全选
+        self.selectArray = [NSMutableArray new];;
+        [self.selectAllBtn setTitle:@"全选" forState:UIControlStateNormal];
+    }
+    [self.tableView reloadData];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.array count];
@@ -595,14 +622,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier = [NSString stringWithFormat:@"LTMultiSelectTableViewCell_%ld", indexPath.row];
+    NSDictionary *dict = [self.array objectAtIndex:indexPath.row];
+    BOOL selected = NO;
+    if ([self.selectArray containsObject:dict]) {
+        selected = YES;
+    }else{
+        selected = NO;
+    }
+    NSString *CellIdentifier = [NSString stringWithFormat:@"LTMultiSelectTableViewCell_%ld_%d", indexPath.row, selected];
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
-    NSDictionary *dict = [self.array objectAtIndex:indexPath.row];
     
     UIImageView *checkImageView = [[UIImageView alloc] initWithFrame:CGRectMake(12, 10, 20, 20)];
     if ([self.selectArray containsObject:dict]) {
@@ -615,7 +647,7 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, self.contentView.frame.size.width-48, 40)];
     titleLabel.font = [UIFont systemFontOfSize:14.f];
     titleLabel.textColor = [UIColor grayColor];
-    titleLabel.text = [dict objectForKey:@"name"];
+    titleLabel.text = [dict objectForKey:self.key];
     [cell addSubview:titleLabel];
     
     return cell;
@@ -628,6 +660,11 @@
         [self.selectArray removeObject:dict];
     }else{
         [self.selectArray addObject:dict];
+    }
+    if (self.selectArray.count == self.array.count) {
+        [self.selectAllBtn setTitle:@"取消全选" forState:UIControlStateNormal];
+    }else{
+        [self.selectAllBtn setTitle:@"全选" forState:UIControlStateNormal];
     }
     NSArray <NSIndexPath *> *indexPathArray = @[indexPath];
     [tableView reloadRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];

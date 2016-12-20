@@ -41,6 +41,6 @@
 @property (nonatomic, copy) void(^confirmButtonClicked)(NSArray *array);
 @property (nonatomic, copy) void(^cancelButtonClicked)(void);
 
-- (instancetype)initWithArray:(NSArray *)array title:(NSString *)title;
+- (instancetype)initWithArray:(NSArray *)array title:(NSString *)title listTitlekey:(NSString *)key canSelectAll:(BOOL)selectAll;
 
 @end

@@ -41,6 +41,10 @@
     [super viewDidAppear:animated];
 }
 
+- (IBAction)addMessageAction:(id)sender {
+    [self performSegueWithIdentifier:@"pushToAddMessage" sender:@"tapAdd"];
+}
+
 - (void)getTZGGList{
     [SVProgressHUD showWithStatus:@"加载中..."];
     

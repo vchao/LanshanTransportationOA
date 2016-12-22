@@ -10,6 +10,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--出差查阅-->
+        <scene sceneID="dMt-N3-gb2">
+            <objects>
+                <viewController id="QOp-0c-GDz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e8t-9y-MgV"/>
+                        <viewControllerLayoutGuide type="bottom" id="ask-e6-w8l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AHn-MQ-IUt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="出差查阅" id="e2h-wS-QB4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q0R-CG-Qm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="626" y="-953"/>
+        </scene>
         <!--首页-->
         <scene sceneID="Hqw-P8-xQt">
             <objects>
@@ -46,11 +65,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="nvy-7A-aAu"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="rxP-8H-Cwx" kind="push" identifier="pushToReviceFile" id="kYu-lX-rg7"/>
                         <segue destination="Mfi-cr-tSv" kind="push" identifier="pushToMailList" id="jR6-Zs-UXP"/>
                         <segue destination="gSv-gc-azd" kind="push" identifier="pushToStamp" id="aZr-Bl-09c"/>
                         <segue destination="4M2-aa-PHg" kind="push" identifier="pushToMessageCenter" id="Cab-7U-ssz"/>
+                        <segue destination="EDb-lE-Ow4" kind="push" identifier="pushToWaichu" id="nYY-YH-9XM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A61-4k-JhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -134,7 +155,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HDT-3e-sZw" id="Hw6-0Z-8WW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通知标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHJ-Bn-p67">
@@ -239,7 +260,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FHg-KP-rto" id="1NU-I5-Gvn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="协同办公平台培训会        2014-11-03 08:50 会议室1032" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPi-s5-Z9q">
@@ -354,7 +375,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gDN-lO-9qu" id="WFO-3G-fKB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -424,10 +445,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LTContactsTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="LTContactsTableViewCell" id="oAa-R1-7dQ" customClass="LTContactsTableViewCell">
-                                <rect key="frame" x="0.0" y="56" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oAa-R1-7dQ" id="WDt-WT-9y2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="MNm-BO-Mhe">
@@ -494,6 +515,169 @@
             </objects>
             <point key="canvasLocation" x="1665" y="770"/>
         </scene>
+        <!--休假查阅-->
+        <scene sceneID="ioo-71-roN">
+            <objects>
+                <viewController id="sVI-xv-UHn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OQc-Ad-Tqb"/>
+                        <viewControllerLayoutGuide type="bottom" id="TRS-0s-Xca"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gp1-q2-zLR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="休假查阅" id="QXt-Ju-7wb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="agq-in-cor" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1332" y="-2681"/>
+        </scene>
+        <!--出差申请-->
+        <scene sceneID="wAP-jW-nDp">
+            <objects>
+                <viewController id="CEw-4B-UGU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sja-a0-1hZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="K3Q-Cc-iRe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LE8-Lf-pa4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="出差申请" id="5fR-SU-inZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WNR-El-QLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="590" y="-2364"/>
+        </scene>
+        <!--出差审批-->
+        <scene sceneID="tJr-3F-CZD">
+            <objects>
+                <viewController id="zAE-Ja-IKf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xeb-st-UQG"/>
+                        <viewControllerLayoutGuide type="bottom" id="vz4-rD-dHn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bXm-6N-v4V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="出差审批" id="qjC-l1-kmd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pgw-kP-1qC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="590" y="-1637"/>
+        </scene>
+        <!--休假审批-->
+        <scene sceneID="0Dd-cx-JYE">
+            <objects>
+                <viewController id="vuN-7D-jEw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aQR-z0-gjG"/>
+                        <viewControllerLayoutGuide type="bottom" id="5JZ-zJ-f2S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aeW-SS-Cs5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="休假审批" id="SxD-Ta-eQQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPL-J1-n4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2086" y="-2681"/>
+        </scene>
+        <!--休假申请-->
+        <scene sceneID="EwT-QS-PW2">
+            <objects>
+                <viewController id="ZaI-Nn-UDK" customClass="LTVacationApplyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OQW-Qc-sxw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xvv-f5-dVs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gTp-r2-YBv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="休假申请" id="g4m-P8-nQA">
+                        <barButtonItem key="rightBarButtonItem" title="申请列表" id="4Im-Yl-XfU">
+                            <connections>
+                                <action selector="applyListAction:" destination="ZaI-Nn-UDK" id="Ul0-Sc-Fgs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="qk9-7T-GnM" kind="push" identifier="pushToApplyList" id="LRO-SP-jSZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uzA-VD-L7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2806" y="-2681"/>
+        </scene>
+        <!--我的休假查询-->
+        <scene sceneID="N4k-vC-uri">
+            <objects>
+                <viewController id="qk9-7T-GnM" customClass="LTMyVacationListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8wQ-RE-xgY"/>
+                        <viewControllerLayoutGuide type="bottom" id="plf-Fy-JKR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N5X-Qi-YOf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="我的休假查询" id="fbx-pZ-eiX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uJr-Mo-xqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3574" y="-3203"/>
+        </scene>
+        <!--外出报备-->
+        <scene sceneID="Iuq-51-Ppm">
+            <objects>
+                <viewController id="EDb-lE-Ow4" customClass="LTWaichuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NMr-DS-fPh"/>
+                        <viewControllerLayoutGuide type="bottom" id="9ej-6I-ePn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BN6-Ih-A6V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="9h3-tH-Cy8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9h3-tH-Cy8" firstAttribute="top" secondItem="BN6-Ih-A6V" secondAttribute="top" id="9fe-NG-N3p"/>
+                            <constraint firstItem="9h3-tH-Cy8" firstAttribute="leading" secondItem="BN6-Ih-A6V" secondAttribute="leading" id="SIe-Hv-0Ek"/>
+                            <constraint firstItem="9ej-6I-ePn" firstAttribute="top" secondItem="9h3-tH-Cy8" secondAttribute="bottom" id="Ter-Se-4QB"/>
+                            <constraint firstAttribute="trailing" secondItem="9h3-tH-Cy8" secondAttribute="trailing" id="wRK-eg-kLv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="外出报备" id="b7V-CR-Iuv"/>
+                    <connections>
+                        <outlet property="tableView" destination="9h3-tH-Cy8" id="Q3J-SL-N9k"/>
+                        <segue destination="ZaI-Nn-UDK" kind="push" identifier="pushToVacationApply" id="YAi-S6-879"/>
+                        <segue destination="vuN-7D-jEw" kind="push" identifier="pushToVacationApproval" id="SIn-Cd-nQ1"/>
+                        <segue destination="sVI-xv-UHn" kind="push" identifier="pushToVacationConsult" id="pCg-bF-LY4"/>
+                        <segue destination="CEw-4B-UGU" kind="push" identifier="pushToBusinessApply" id="Y7D-KN-reQ"/>
+                        <segue destination="zAE-Ja-IKf" kind="push" identifier="pushToBusinessApproval" id="Cy1-Iu-aFu"/>
+                        <segue destination="QOp-0c-GDz" kind="push" identifier="pushToBusinessConsult" id="ENF-Cr-zgM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tpQ-kC-Ku1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1889" y="-1526"/>
+        </scene>
         <!--公文管理-->
         <scene sceneID="9zN-to-7ZF">
             <objects>
@@ -545,7 +729,7 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oMa-ha-8RQ" id="U1B-yG-eUl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="协同办公平台培训会        2014-11-03 08:50 会议室1032" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPY-vW-1RO">
@@ -751,7 +935,7 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OFG-8x-aI4" id="hlK-1P-WoG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邮件标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKw-WN-bGF">

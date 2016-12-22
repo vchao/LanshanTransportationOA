@@ -23,6 +23,9 @@
 		87415D181E0129C9005C5AEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87415D161E0129C9005C5AEA /* LaunchScreen.storyboard */; };
 		87415D231E0129C9005C5AEA /* LanshanTransportationOATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D221E0129C9005C5AEA /* LanshanTransportationOATests.m */; };
 		87415D2E1E0129C9005C5AEA /* LanshanTransportationOAUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D2D1E0129C9005C5AEA /* LanshanTransportationOAUITests.m */; };
+		874C292B1E0B73FF0059E4ED /* LTWaichuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C292A1E0B73FF0059E4ED /* LTWaichuViewController.m */; };
+		874C292E1E0B7ADC0059E4ED /* LTVacationApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C292D1E0B7ADC0059E4ED /* LTVacationApplyViewController.m */; };
+		874C29311E0BB4C10059E4ED /* LTMyVacationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C29301E0BB4C10059E4ED /* LTMyVacationListViewController.m */; };
 		8778AF141E050BFE00A85687 /* LTFileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8778AF131E050BFE00A85687 /* LTFileDetailViewController.m */; };
 		8782726B1E0133FC00DECCBD /* LTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8782726A1E0133FC00DECCBD /* LTMainViewController.m */; };
 		8782726E1E014F8800DECCBD /* LTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8782726D1E014F8800DECCBD /* LTTabBarController.m */; };
@@ -123,6 +126,12 @@
 		87415D291E0129C9005C5AEA /* LanshanTransportationOAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanshanTransportationOAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87415D2D1E0129C9005C5AEA /* LanshanTransportationOAUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanshanTransportationOAUITests.m; sourceTree = "<group>"; };
 		87415D2F1E0129C9005C5AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		874C29291E0B73FF0059E4ED /* LTWaichuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTWaichuViewController.h; sourceTree = "<group>"; };
+		874C292A1E0B73FF0059E4ED /* LTWaichuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTWaichuViewController.m; sourceTree = "<group>"; };
+		874C292C1E0B7ADC0059E4ED /* LTVacationApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTVacationApplyViewController.h; sourceTree = "<group>"; };
+		874C292D1E0B7ADC0059E4ED /* LTVacationApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTVacationApplyViewController.m; sourceTree = "<group>"; };
+		874C292F1E0BB4C10059E4ED /* LTMyVacationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMyVacationListViewController.h; sourceTree = "<group>"; };
+		874C29301E0BB4C10059E4ED /* LTMyVacationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMyVacationListViewController.m; sourceTree = "<group>"; };
 		8778AF121E050BFE00A85687 /* LTFileDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTFileDetailViewController.h; sourceTree = "<group>"; };
 		8778AF131E050BFE00A85687 /* LTFileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTFileDetailViewController.m; sourceTree = "<group>"; };
 		878272691E0133FC00DECCBD /* LTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMainViewController.h; sourceTree = "<group>"; };
@@ -329,6 +338,12 @@
 				871EC52D1E090F98002C1493 /* LTMessageDetailViewController.m */,
 				871EC52F1E0917CE002C1493 /* LTMessageAddViewController.h */,
 				871EC5301E0917CE002C1493 /* LTMessageAddViewController.m */,
+				874C29291E0B73FF0059E4ED /* LTWaichuViewController.h */,
+				874C292A1E0B73FF0059E4ED /* LTWaichuViewController.m */,
+				874C292C1E0B7ADC0059E4ED /* LTVacationApplyViewController.h */,
+				874C292D1E0B7ADC0059E4ED /* LTVacationApplyViewController.m */,
+				874C292F1E0BB4C10059E4ED /* LTMyVacationListViewController.h */,
+				874C29301E0BB4C10059E4ED /* LTMyVacationListViewController.m */,
 			);
 			path = LanshanTransportationOA;
 			sourceTree = "<group>";
@@ -626,6 +641,7 @@
 				87F982F71E07C6C800AB5541 /* LTContactCell.m in Sources */,
 				871EC52B1E090BA2002C1493 /* LTMessageCenterTableViewCell.m in Sources */,
 				871EC52E1E090F98002C1493 /* LTMessageDetailViewController.m in Sources */,
+				874C29311E0BB4C10059E4ED /* LTMyVacationListViewController.m in Sources */,
 				870EE60E1E03D11900BFEC2E /* LTReviceFileTableViewCell.m in Sources */,
 				8782726B1E0133FC00DECCBD /* LTMainViewController.m in Sources */,
 				878272A81E0154D200DECCBD /* UIAlertView+AFNetworking.m in Sources */,
@@ -652,7 +668,9 @@
 				878272FD1E0158D600DECCBD /* SBJsonStreamWriterState.m in Sources */,
 				878272A31E0154D200DECCBD /* AFURLRequestSerialization.m in Sources */,
 				878272B31E0154E100DECCBD /* SVProgressHUD.m in Sources */,
+				874C292E1E0B7ADC0059E4ED /* LTVacationApplyViewController.m in Sources */,
 				878272A61E0154D200DECCBD /* AFNetworkActivityIndicatorManager.m in Sources */,
+				874C292B1E0B73FF0059E4ED /* LTWaichuViewController.m in Sources */,
 				878272A11E0154D200DECCBD /* AFSecurityPolicy.m in Sources */,
 				8782729D1E0154D200DECCBD /* AFHTTPRequestOperation.m in Sources */,
 				87F982F41E07C33600AB5541 /* RTLabel.m in Sources */,

@@ -117,6 +117,7 @@
         [self performSegueWithIdentifier:@"pushToMessageCenter" sender:@"tapCell"];
     }else if (btn.tag == 1008) {
         //外出报备
+        [self performSegueWithIdentifier:@"pushToWaichu" sender:@"tapCell"];
     }else if (btn.tag == 1009) {
         //考勤管理
     }else if (btn.tag == 1010) {

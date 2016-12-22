@@ -20,12 +20,12 @@
 		87415D101E0129C9005C5AEA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D0F1E0129C9005C5AEA /* ViewController.m */; };
 		87415D131E0129C9005C5AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87415D111E0129C9005C5AEA /* Main.storyboard */; };
 		87415D151E0129C9005C5AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87415D141E0129C9005C5AEA /* Assets.xcassets */; };
-		87415D181E0129C9005C5AEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87415D161E0129C9005C5AEA /* LaunchScreen.storyboard */; };
 		87415D231E0129C9005C5AEA /* LanshanTransportationOATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D221E0129C9005C5AEA /* LanshanTransportationOATests.m */; };
 		87415D2E1E0129C9005C5AEA /* LanshanTransportationOAUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87415D2D1E0129C9005C5AEA /* LanshanTransportationOAUITests.m */; };
 		874C292B1E0B73FF0059E4ED /* LTWaichuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C292A1E0B73FF0059E4ED /* LTWaichuViewController.m */; };
 		874C292E1E0B7ADC0059E4ED /* LTVacationApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C292D1E0B7ADC0059E4ED /* LTVacationApplyViewController.m */; };
 		874C29311E0BB4C10059E4ED /* LTMyVacationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C29301E0BB4C10059E4ED /* LTMyVacationListViewController.m */; };
+		874C29331E0BBCDE0059E4ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 874C29321E0BBCDE0059E4ED /* Images.xcassets */; };
 		8778AF141E050BFE00A85687 /* LTFileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8778AF131E050BFE00A85687 /* LTFileDetailViewController.m */; };
 		8782726B1E0133FC00DECCBD /* LTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8782726A1E0133FC00DECCBD /* LTMainViewController.m */; };
 		8782726E1E014F8800DECCBD /* LTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8782726D1E014F8800DECCBD /* LTTabBarController.m */; };
@@ -118,7 +118,6 @@
 		87415D0F1E0129C9005C5AEA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		87415D121E0129C9005C5AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87415D141E0129C9005C5AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		87415D171E0129C9005C5AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87415D191E0129C9005C5AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87415D1E1E0129C9005C5AEA /* LanshanTransportationOATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanshanTransportationOATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87415D221E0129C9005C5AEA /* LanshanTransportationOATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanshanTransportationOATests.m; sourceTree = "<group>"; };
@@ -132,6 +131,7 @@
 		874C292D1E0B7ADC0059E4ED /* LTVacationApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTVacationApplyViewController.m; sourceTree = "<group>"; };
 		874C292F1E0BB4C10059E4ED /* LTMyVacationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMyVacationListViewController.h; sourceTree = "<group>"; };
 		874C29301E0BB4C10059E4ED /* LTMyVacationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMyVacationListViewController.m; sourceTree = "<group>"; };
+		874C29321E0BBCDE0059E4ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8778AF121E050BFE00A85687 /* LTFileDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTFileDetailViewController.h; sourceTree = "<group>"; };
 		8778AF131E050BFE00A85687 /* LTFileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTFileDetailViewController.m; sourceTree = "<group>"; };
 		878272691E0133FC00DECCBD /* LTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMainViewController.h; sourceTree = "<group>"; };
@@ -289,7 +289,6 @@
 				87415D0F1E0129C9005C5AEA /* ViewController.m */,
 				87415D111E0129C9005C5AEA /* Main.storyboard */,
 				87415D141E0129C9005C5AEA /* Assets.xcassets */,
-				87415D161E0129C9005C5AEA /* LaunchScreen.storyboard */,
 				87415D191E0129C9005C5AEA /* Info.plist */,
 				87415D081E0129C9005C5AEA /* Supporting Files */,
 				878272691E0133FC00DECCBD /* LTMainViewController.h */,
@@ -344,6 +343,7 @@
 				874C292D1E0B7ADC0059E4ED /* LTVacationApplyViewController.m */,
 				874C292F1E0BB4C10059E4ED /* LTMyVacationListViewController.h */,
 				874C29301E0BB4C10059E4ED /* LTMyVacationListViewController.m */,
+				874C29321E0BBCDE0059E4ED /* Images.xcassets */,
 			);
 			path = LanshanTransportationOA;
 			sourceTree = "<group>";
@@ -602,9 +602,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87415D181E0129C9005C5AEA /* LaunchScreen.storyboard in Resources */,
 				87415D151E0129C9005C5AEA /* Assets.xcassets in Resources */,
 				87415D131E0129C9005C5AEA /* Main.storyboard in Resources */,
+				874C29331E0BBCDE0059E4ED /* Images.xcassets in Resources */,
 				87FA22BF1E02941A00E4D1A6 /* Login.storyboard in Resources */,
 				878272B21E0154E100DECCBD /* SVProgressHUD.bundle in Resources */,
 			);
@@ -734,14 +734,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		87415D161E0129C9005C5AEA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				87415D171E0129C9005C5AEA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -839,12 +831,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = U6FT9LZ7R7;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LanshanTransportationOA/LanshanTransportationOA.pch";
 				INFOPLIST_FILE = LanshanTransportationOA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rzzx.LanshanTransportationOA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -852,12 +846,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = U6FT9LZ7R7;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LanshanTransportationOA/LanshanTransportationOA.pch";
 				INFOPLIST_FILE = LanshanTransportationOA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rzzx.LanshanTransportationOA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

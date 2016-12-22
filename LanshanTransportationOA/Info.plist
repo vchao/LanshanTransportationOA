@@ -28,8 +28,6 @@
 	<string>在使用期间允许你访问您的地理位置</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>"岚山交通局OA”需要您同意才能访问您的相册</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Login</string>
 	<key>UIRequiredDeviceCapabilities</key>
